@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">theClap</string>
+
+    <!-- Bottom Navigation -->
+    <string name="botm_navi_01">홈</string>
+    <string name="botm_navi_02">칭찬</string>
+    <string name="botm_navi_03">내소식</string>
+    <string name="botm_navi_04">채팅</string>
+    <string name="botm_navi_05">MY</string>
+
+    <!-- Home Fragment Layout -->
+    <string name="frag_home_01">로고 이미지</string>
+    <string name="frag_home_02">검색 버튼</string>
+    <string name="frag_home_03">글 작성 버튼</string>
+    <string name="frag_home_04">로그인 유저 프로필 이미지</string>
+    <string name="frag_home_05">Have a Good Day</string>
+    <string name="frag_home_06">The Clab 님!!</string>
+    <string name="frag_home_07">칭찬 챌린지 이미지</string>
+    <string name="frag_home_08">2023 칭찬 챌린지</string>
+    <string name="frag_home_09">오늘 다녀온 그곳, 칭찬하고 스티커 get!</string>
+    <string name="frag_home_10">칭찬 챌린지 상세 보기 버튼</string>
+    <string name="frag_home_11">이번주에는 어떤 칭찬할 일이?</string>
+    <string name="frag_home_12">CLAP 주간 인기</string>
+    <string name="frag_home_13">TOP</string>
+    <string name="frag_home_14">주간 인기 TOP 로고</string>
+    <string name="frag_home_15">칭찬하고 스티커 get 추천</string>
+    <string name="frag_home_16">rank 1 칭찬 글 업로드 이미지</string>
+    <string name="frag_home_17">rank 1 칭찬 작성 유저 이미지</string>
+    <string name="frag_home_18">지히</string>
+    <string name="frag_home_19">셀프칭찬</string>
+
+
+
+    <!-- 로그인 화면 -->
+    <string name="login01">（주）０００ ㅣ 대표이사： ０００\n서울시 강남구 ０００\n사업자등록번호： ０００－００－０００００\n통신판매업신고： 제２０２３－서울강남－０００００호\n등록일： ２０２３년 ００월 ００일\n발행일： ２０２３년 ００월 ００일</string>
+    <string name="login02">로그인 화면 로고</string>
+
+
+    <!-- 토스트 메시지 -->
+    <string name="toast01">회원가입이 완료되었습니다.</string>
+
+    <!-- 회원가입 화면 -->
+    <string name="membership01"><u>정해주세요</u></string>
+
+    <!-- 회원가입 약관 동의 화면 -->
+    <string name="membership_agreement_01"><u>보기</u></string>
+
+</resources>

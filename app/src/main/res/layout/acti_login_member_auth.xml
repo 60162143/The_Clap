@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginVertical="6dp"
+            android:layout_marginStart="8dp"
+            android:padding="8dp"
+            android:background="@color/transparent"/>
+
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginVertical="6dp"
+            android:layout_marginEnd="8dp"
+            android:padding="8dp"
+            android:background="@color/transparent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginHorizontal="16dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_main_hand" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="환영합니다!"
+            android:fontFamily="@font/pretendard_extrabold"
+            android:textSize="24dp"
+            android:textColor="@color/brand"
+            android:layout_marginStart="12dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="고객님의 즐겁고 편리한 ‘THE CLAP’이용을 위해 아래와 같이 접근 권한 허용이 필요합니다."
+        android:textSize="16dp"
+        android:textColor="@color/gray6"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="vertical"
+        android:background="@drawable/round_gray1_30dp"
+        android:padding="30dp"
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_empty_person" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="저장공간 (선택)"
+                android:fontFamily="@font/pretendard_medium"
+                android:textSize="16dp"
+                android:textColor="@color/gray5"
+                android:layout_marginStart="12dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_empty_person" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="사진/카메라 (선택)"
+                android:fontFamily="@font/pretendard_medium"
+                android:textSize="16dp"
+                android:textColor="@color/gray5"
+                android:layout_marginStart="12dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_empty_person" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="연락처 (선택)"
+                android:fontFamily="@font/pretendard_medium"
+                android:textSize="16dp"
+                android:textColor="@color/gray5"
+                android:layout_marginStart="12dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/noti_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_empty_person" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="알림 (선택)"
+                android:fontFamily="@font/pretendard_medium"
+                android:textSize="16dp"
+                android:textColor="@color/gray5"
+                android:layout_marginStart="12dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="선택 권한의 경우, 허용하지 않아도 서비스를 이용하실 수 있으나, 일부 제한이 있을 수 있습니다."
+            android:textSize="13dp"
+            android:textColor="@color/gray3"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="20dp"
+        android:text="확인"
+        android:fontFamily="@font/pretendard_extrabold"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        android:background="@color/brand"/>
+
+</LinearLayout>

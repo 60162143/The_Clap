@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/login_logo_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_splash_logo"
+                android:layout_gravity="center"
+                android:contentDescription="로그인 화면 로고" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/login_social_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/login_kakao_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_kakao"
+                    android:background="@color/transparent"
+                    android:contentDescription="카카오 소셜 로그인 버튼" />
+
+                <ImageView
+                    android:id="@+id/login_naver_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_naver"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@color/transparent"
+                    android:contentDescription="네이버 소셜 로그인 버튼"/>
+
+                <ImageView
+                    android:id="@+id/login_google_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_google"
+                    android:background="@color/transparent"
+                    android:contentDescription="구글 소셜 로그인 버튼"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10초면 끝, 간편가입 하세요!"
+                android:background="@drawable/ic_speech_balloon"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/pretendard_medium"
+                android:layout_marginTop="5dp"
+                android:paddingTop="5dp"/>
+
+            <Button
+                android:id="@+id/non_login_btn"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:text="우선 둘러볼게요"
+                android:fontFamily="@font/pretendard_medium"
+                android:textSize="14dp"
+                android:textColor="@color/gray6"
+                android:background="@drawable/border_round_gray3_14dp"
+                android:layout_marginTop="25dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="40dp"
+            android:background="@color/gray1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="고객 문의"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:textColor="@color/gray5"
+                    android:fontFamily="@font/pretendard_extrabold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="주말 공휴일 제외"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray4"
+                    android:layout_marginTop="13dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="compliment_help@gmail.com"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray4"
+                    android:layout_marginTop="2dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/gray2"
+                android:layout_marginTop="20dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/login_agreement_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="이용약관"
+                            android:textSize="14dp"
+                            android:textColor="@color/gray6"
+                            android:fontFamily="@font/pretendard_medium"
+                            android:background="@color/gray1"
+                            android:minWidth="0dp"
+                            style="?android:attr/borderlessButtonStyle"/>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="12dp"
+                            android:background="#D9D9D9"
+                            android:layout_marginHorizontal="6dp"
+                            android:layout_gravity="center"/>
+
+                        <Button
+                            android:id="@+id/login_policy_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="개인정보 처리방침"
+                            android:textSize="14dp"
+                            android:textColor="@color/gray6"
+                            android:fontFamily="@font/pretendard_medium"
+                            android:background="@color/gray1"
+                            android:minWidth="0dp"
+                            style="?android:attr/borderlessButtonStyle"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="더클랩 코퍼레이션 | 대표 : 임은수"
+                        android:textSize="13dp"
+                        android:textColor="@color/gray3"
+                        android:layout_marginTop="13dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="경기도 성남시 분당구 내정로94"
+                        android:textSize="13dp"
+                        android:textColor="@color/gray3"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="사업자등록번호 : 542-42-01196"
+                        android:textSize="13dp"
+                        android:textColor="@color/gray3"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="등록일 : 2023년 08월 19일"
+                        android:textSize="13dp"
+                        android:textColor="@color/gray3"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="발행일 : 2023년 08월 21일"
+                        android:textSize="13dp"
+                        android:textColor="@color/gray3"
+                        android:layout_marginTop="4dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

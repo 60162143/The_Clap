@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment"
+    android:orientation="vertical">
+
+    <!--    유저 정보와 인사 LinearLayout    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="1000dp"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/login_user_prof"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                android:padding="0dp"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center"
+                android:background="@drawable/round_gray1_5dp"
+                android:contentDescription="@string/frag_home_04"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/frag_home_05"
+                android:textColor="@color/gray1"
+                android:textSize="18dp"
+                android:background="@drawable/round_gray1_5dp"
+                android:layout_marginBottom="2dp"/>
+
+            <TextView
+                android:id="@+id/login_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/frag_home_06"
+                android:textColor="@color/gray1"
+                android:textSize="24dp"
+                android:fontFamily="@font/pretendard_extrabold"
+                android:background="@drawable/round_gray1_5dp"
+                android:layout_marginTop="2dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!--    /유저 정보와 인사 LinearLayout    -->
+
+    <!--    칭찬 챌린지 Cardview    -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingVertical="20dp"
+            android:paddingHorizontal="14dp"
+            android:weightSum="5">
+
+            <ImageView
+                android:id="@+id/challenge_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/round_gray1_5dp"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/frag_home_07" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="5">
+
+                <TextView
+                    android:id="@+id/chal_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frag_home_08"
+                    android:textSize="13dp"
+                    android:textColor="@color/gray1"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:background="@drawable/round_gray1_5dp"/>
+
+                <TextView
+                    android:id="@+id/chal_cont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frag_home_09"
+                    android:textSize="15dp"
+                    android:textColor="@color/gray1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/round_gray1_5dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/chal_btn"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/round_gray1_5dp"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/frag_home_09" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <!--    /칭찬 챌린지 Cardview    -->
+
+    <!--    인기 글 LinearLayout    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="16dp">
+
+        <!--    인기 글 Title LinearLayout    -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--    인기 글 Title Text LinearLayout    -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="bottom">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frag_home_11"
+                    android:textSize="15dp"
+                    android:textColor="@color/gray1"
+                    android:background="@drawable/round_gray1_5dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/frag_home_12"
+                        android:textSize="20dp"
+                        android:textColor="@color/gray1"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:background="@drawable/round_gray1_5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/frag_home_13"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray1"
+                        android:fontFamily="@font/pretendard_extrabold"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/round_gray1_5dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <!--    인기 글 Title Text LinearLayout    -->
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="74dp"
+                android:background="@drawable/round_gray1_5dp"
+                android:contentDescription="@string/frag_home_14" />
+
+        </LinearLayout>
+        <!--    /인기 글 Title LinearLayout    -->
+
+        <!--    인기 글 Content LinearLayout    -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/border_round_gray3_14dp"
+            android:padding="12dp"
+            android:layout_marginTop="10dp">
+
+            <!--    인기 글 Content Rank 1 FrameLayout    -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--    인기 글 Rank 1 Content LinearLayout    -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="26dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingBottom="12dp"
+                    android:background="@drawable/border_round_gray1_20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+                        <TextView
+                            android:id="@+id/rank_1_cont"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="@string/frag_home_15"
+                            android:textSize="15dp"
+                            android:textColor="@color/gray1"
+                            android:fontFamily="@font/pretendard_medium"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:layout_weight="5"
+                            android:background="@drawable/round_gray1_5dp"
+                            android:layout_marginEnd="10dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            app:cardElevation="0dp"
+                            android:layout_gravity="center_vertical">
+
+                            <ImageButton
+                                android:id="@+id/rank_1_cont_image"
+                                android:layout_width="54dp"
+                                android:layout_height="44dp"
+                                android:scaleType="centerCrop"
+                                android:padding="0dp"
+                                android:adjustViewBounds="true"
+                                android:layout_gravity="center"
+                                android:background="@drawable/round_gray1_5dp"
+                                android:contentDescription="@string/frag_home_16"/>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardElevation="0dp"
+                            app:cardCornerRadius="10000dp"
+                            android:layout_gravity="center_vertical">
+
+                            <ImageView
+                                android:id="@+id/rank_1_user_image"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:scaleType="centerCrop"
+                                android:padding="0dp"
+                                android:adjustViewBounds="true"
+                                android:layout_gravity="center"
+                                android:background="@drawable/round_gray1_5dp"
+                                android:contentDescription="@string/frag_home_17"/>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/rank_1_user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/frag_home_18"
+                            android:textSize="13dp"
+                            android:textColor="@color/gray1"
+                            android:fontFamily="@font/pretendard_medium"
+                            android:layout_marginStart="2dp"
+                            android:background="@drawable/round_gray1_5dp"/>
+
+                        <TextView
+                            android:id="@+id/rank_1_user_comp_cat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/frag_home_19"
+                            android:textSize="13dp"
+                            android:textColor="@color/gray1"
+                            android:drawablePadding="5dp"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/round_gray1_5dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/round_gray1_5dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center_vertical"
+                                android:paddingTop="3dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:text="22"
+                                android:textSize="12dp"
+                                android:textColor="@color/gray1"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="2dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="12dp"
+                            android:background="@drawable/round_gray1_5dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center_vertical"
+                                android:paddingTop="3dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:text="3"
+                                android:textSize="12dp"
+                                android:textColor="@color/gray1"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="2dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="12dp"
+                            android:background="@drawable/round_gray1_5dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center_vertical"
+                                android:paddingTop="3dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:text="22"
+                                android:textSize="12dp"
+                                android:textColor="@color/gray1"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="2dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--    인기 글 Rank 1 Content LinearLayout    -->
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/round_gray1_5dp"
+                    android:layout_marginStart="10dp"/>
+
+            </FrameLayout>
+            <!--    인기 글 Content Rank 1 FrameLayout    -->
+
+            <!--    인기 글 Content Rank 2 FrameLayout    -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <!--    인기 글 Rank 2 Content LinearLayout    -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="26dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingBottom="12dp"
+                    android:background="@drawable/border_round_gray1_20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="이수명 대리님을 칭찬합니다! 오늘 제가 출근하다가 다쳐서 조금 지각을 했는데.. 걱정해주셔서 너무 감사했습니다."
+                            android:textSize="15dp"
+                            android:textColor="@color/gray1"
+                            android:fontFamily="@font/pretendard_medium"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:layout_weight="5"
+                            android:background="@drawable/round_gray1_5dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            app:cardElevation="0dp"
+                            app:cardCornerRadius="12dp"
+                            android:layout_gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <ImageButton
+                                android:layout_width="54dp"
+                                android:layout_height="44dp"
+                                android:src="@drawable/test_image_1"
+                                android:scaleType="centerCrop"
+                                android:padding="0dp"
+                                android:adjustViewBounds="true"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="테스트 유저 이미지"/>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardElevation="0dp"
+                            app:cardCornerRadius="10000dp"
+                            android:layout_gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:scaleType="centerCrop"
+                                android:padding="0dp"
+                                android:adjustViewBounds="true"
+                                android:layout_gravity="center"
+                                android:background="@drawable/round_gray1_5dp"
+                                android:contentDescription="테스트 유저 이미지"/>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="지히"
+                            android:textSize="13dp"
+                            android:textColor="@color/gray1"
+                            android:fontFamily="@font/pretendard_medium"
+                            android:layout_marginStart="2dp"
+                            android:background="@drawable/round_gray1_5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="주변인 칭찬"
+                            android:textSize="13dp"
+                            android:textColor="@color/gray1"
+                            android:drawablePadding="5dp"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/round_gray1_5dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/round_gray1_5dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center_vertical"
+                                android:paddingTop="3dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:text="22"
+                                android:textSize="12dp"
+                                android:textColor="@color/gray1"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="2dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="12dp"
+                            android:background="@drawable/round_gray1_5dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center_vertical"
+                                android:paddingTop="3dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:text="3"
+                                android:textSize="12dp"
+                                android:textColor="@color/gray1"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="2dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="12dp"
+                            android:background="@drawable/round_gray1_5dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center_vertical"
+                                android:paddingTop="3dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:text="22"
+                                android:textSize="12dp"
+                                android:textColor="@color/gray1"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="2dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--    인기 글 Rank 2 Content LinearLayout    -->
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/round_gray1_5dp"/>
+
+            </FrameLayout>
+            <!--    인기 글 Content Rank 2 FrameLayout    -->
+
+            <!--    인기 글 Content Rank 3 FrameLayout    -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <!--    인기 글 Rank 3 Content LinearLayout    -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="26dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingBottom="12dp"
+                    android:background="@drawable/border_round_gray1_20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="Y&amp;j 사장님 진짜 친절하셔요..."
+                            android:fontFamily="@font/pretendard_medium"
+                            android:textSize="15dp"
+                            android:textColor="@color/gray1"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:layout_weight="5"
+                            android:background="@drawable/round_gray1_5dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardElevation="0dp"
+                            app:cardCornerRadius="12dp"
+                            android:layout_gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <ImageButton
+                                android:layout_width="54dp"
+                                android:layout_height="44dp"
+                                android:src="@drawable/test_image_1"
+                                android:scaleType="centerCrop"
+                                android:padding="0dp"
+                                android:adjustViewBounds="true"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="테스트 유저 이미지"/>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardElevation="0dp"
+                            app:cardCornerRadius="10000dp"
+                            android:layout_gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:scaleType="centerCrop"
+                                android:padding="0dp"
+                                android:adjustViewBounds="true"
+                                android:layout_gravity="center"
+                                android:background="@drawable/round_gray1_5dp"
+                                android:contentDescription="테스트 유저 이미지"/>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="지히"
+                            android:textSize="13dp"
+                            android:textColor="@color/gray1"
+                            android:fontFamily="@font/pretendard_medium"
+                            android:layout_marginStart="2dp"
+                            android:background="@drawable/round_gray1_5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="주변인 칭찬"
+                            android:textSize="13dp"
+                            android:textColor="@color/gray1"
+                            android:drawablePadding="5dp"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/round_gray1_5dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/round_gray1_5dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center_vertical"
+                                android:paddingTop="3dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:text="22"
+                                android:textSize="12dp"
+                                android:textColor="@color/gray1"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="2dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="12dp"
+                            android:background="@drawable/round_gray1_5dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center_vertical"
+                                android:paddingTop="3dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:text="3"
+                                android:textSize="12dp"
+                                android:textColor="@color/gray1"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="2dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="12dp"
+                            android:background="@drawable/round_gray1_5dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center_vertical"
+                                android:paddingTop="3dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:text="22"
+                                android:textSize="12dp"
+                                android:textColor="@color/gray1"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="2dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--    인기 글 Rank 3 Content LinearLayout    -->
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/round_gray1_5dp"
+                    android:layout_marginStart="10dp"/>
+
+            </FrameLayout>
+            <!--    인기 글 Content Rank 3 FrameLayout    -->
+
+        </LinearLayout>
+        <!--    /인기 글 Content LinearLayout    -->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="전체보기"
+            android:layout_gravity="end"
+            android:textSize="14dp"
+            android:textColor="@color/gray1"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/round_gray1_5dp"/>
+
+    </LinearLayout>
+    <!--    /인기 글 LinearLayout    -->
+
+    <!--    오늘의 칭찬 LinearLayout    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="오늘의"
+                android:textSize="20dp"
+                android:textColor="@color/gray1"
+                android:layout_gravity="center"
+                android:background="@drawable/round_gray1_5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="칭찬"
+                android:textSize="20dp"
+                android:textColor="@color/gray1"
+                android:fontFamily="@font/pretendard_extrabold"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/round_gray1_5dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/border_round_gray1_20dp"
+            android:layout_marginTop="10dp"
+            android:padding="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="68">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="격려의 한마디!"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gray1"
+                    android:fontFamily="@font/pretendard_extrabold"
+                    android:layout_gravity="center"
+                    android:layout_weight="58"
+                    android:background="@drawable/round_gray1_5dp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="by 지희"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray1"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/pretendard_extrabold"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="10"
+                    android:background="@drawable/round_gray1_5dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="격려 한마디에 동료가 힘을 얻는다고 한다!\n기분 좋은 아침의 시작이다."
+                android:textSize="15dp"
+                android:textColor="@color/gray1"
+                android:layout_marginTop="8dp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:background="@drawable/round_gray1_5dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <!--    /오늘의 칭찬 LinearLayout    -->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        android:background="@drawable/border_round_gray3_20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp">
+
+            <ImageView
+                android:id="@+id/vp_event_image"
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:background="@drawable/round_gray1_5dp"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/vp_event_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="칭찬 인증 챌린지 참여하고 고래 스티커 받아가세요!"
+                android:textSize="18dp"
+                android:padding="14dp"
+                android:textColor="@color/gray1"
+                android:background="@drawable/round_gray1_5dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

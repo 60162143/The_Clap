@@ -1,0 +1,115 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'     // Glide의 Kotlin Annotation Processing Tool
+    // Add the Google services Gradle plugin
+    id 'com.google.gms.google-services'
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+android {
+    namespace 'com.chingchan.theClap'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.chingchan.theClap"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "KAKAO_LOGIN_API_KEY", properties['kakaoLoginApiKey']
+
+        buildConfigField "String", "NAVER_LOGIN_CLIENT_ID", properties['naverLoginClientId']
+        buildConfigField "String", "NAVER_LOGIN_CLIENT_SECRET", properties['naverLoginClientSecret']
+        buildConfigField "String", "NAVER_LOGIN_CLIENT_NAME", properties['naverLoginClientName']
+
+        buildConfigField "String", "GOOGLE_LOGIN_CLIENT_ID", properties['googleLoginClientId']
+
+        buildConfigField "String", "BASE_URL", properties['baseURL']
+
+        buildConfigField "String", "LOGIN_AGREEMENT_URL", properties['loginAgreementURL']   // 로그인 이용약관 URL
+        buildConfigField "String", "LOGIN_POLICY_URL", properties['loginPolicyURL']         // 로그인 개인정보 처리방침 URL
+
+        // AndroidManifest 에서 쓸수 있도록 지정
+        manifestPlaceholders = [kakaoLoginApiKey:properties['kakaoLoginApiKey']]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.2'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.5'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'androidx.security:security-crypto-ktx:1.1.0-alpha06'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // splashScreen api Library
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+
+    // Kakao Login api
+    implementation "com.kakao.sdk:v2-user:2.10.0"
+
+    // Naver Login api
+    implementation 'com.navercorp.nid:oauth:5.3.0'
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"
+
+    // Google Play services
+    implementation 'com.google.gms:google-services:4.4.0'
+    implementation 'com.google.firebase:firebase-auth:22.3.0'
+    implementation 'com.google.android.gms:play-services-auth:20.7.0'
+    implementation platform('com.google.firebase:firebase-bom:32.6.0')
+    implementation 'com.google.firebase:firebase-analytics'
+
+
+    // shimmer-android Library - Skeleton Loading Screen
+    implementation "com.facebook.shimmer:shimmer:0.5.0"
+
+    // Retrofit2 Library
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Glide Library
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
+
+    // Circle Image Library
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+}

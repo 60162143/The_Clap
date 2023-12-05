@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 인터넷 접근 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 연락처 접근 권한, 안드로이드 10버전 이상, 이하 나눠서 확인해야 함 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"
+        android:maxSdkVersion="29"/>
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+
+    <!-- 권한 그룹 : CAMERA -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <!-- 권한 그룹 : STORAGE-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" android:minSdkVersion="33"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <!-- 권한 그룹 : NOTIFICATION-->
+    <uses-permission
+        android:name="android.permission.POST_NOTIFICATIONS"
+        android:minSdkVersion="33" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TheClap"
+        tools:targetApi="34"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
+                <!-- scheme-example: "kakao{NATIVE_APP_KEY}" -->
+                <data
+                    android:host="oauth"
+                    android:scheme="kakao${kakaoLoginApiKey}" />
+
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="Login"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 로그인 웹뷰 액티비티 -->
+        <activity
+            android:name=".ui.login.LoginWebViewActivity"
+            android:label="Login WebView Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 로그인 회원가입 액티비티 -->
+        <activity
+            android:name=".ui.login.LoginMembershipActivity"
+            android:label="Login Membership Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 로그인 동의 액티비티 -->
+        <activity
+            android:name=".ui.login.LoginMembershipAgreementActivity"
+            android:label="Login Membership Agreement Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 로그인 권한 액티비티 -->
+        <activity
+            android:name=".ui.login.LoginMembershipAuthorityActivity"
+            android:label="Login Membership Authority Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 칭찬 글 작성 액티비티 -->
+        <activity
+            android:name=".ui.compliment.ComplimentWriteActivity"
+            android:label="Compliment Write Activity"
+            android:theme="@style/Theme.TheClap"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <!-- 칭찬 글 목록 액티비티 -->
+        <activity
+            android:name=".ui.compliment.ComplimentActivity"
+            android:label="Compliment List Activity"
+            android:theme="@style/Theme.TheClap"/>
+    </application>
+
+</manifest>

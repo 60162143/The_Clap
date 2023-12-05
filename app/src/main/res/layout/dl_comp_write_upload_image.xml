@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingBottom="34dp">
+
+    <Button
+        android:id="@+id/btn_storage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="사진 보관함"
+        android:textSize="15dp"
+        android:textColor="@color/gray6"
+        android:background="@drawable/round_top_border_bottom_gray1_16dp"/>
+
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="사진 찍기"
+        android:textSize="15dp"
+        android:textColor="@color/gray6"
+        android:background="@drawable/round_bottom_gray1_16dp"/>
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="취소"
+        android:textSize="15dp"
+        android:textColor="@color/gray6"
+        android:background="@drawable/round_gray1_16dp"
+        android:layout_marginTop="10dp" />
+
+
+</LinearLayout>

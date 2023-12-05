@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginVertical="6dp"
+            android:layout_marginStart="8dp"
+            android:padding="8dp"
+            android:background="@color/transparent"/>
+
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginVertical="6dp"
+            android:layout_marginEnd="8dp"
+            android:padding="8dp"
+            android:background="@color/transparent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="약관동의"
+        android:fontFamily="@font/pretendard_extrabold"
+        android:textSize="24dp"
+        android:textColor="@color/brand"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="THE CLAP의 서비스 이용을 위해 약관에 동의해주세요. THE CLAP은 만 14세 미만 아동의 회원가입을 제한하고 있습니다."
+        android:textSize="15dp"
+        android:textColor="@color/gray4"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/chk_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:drawableStart="@drawable/sel_member_agree_btn"
+            android:text="이용약관 전체동의"
+            android:textSize="16dp"
+            android:textColor="@color/gray5"
+            android:fontFamily="@font/pretendard_extrabold"
+            android:gravity="start|center_vertical"
+            android:drawablePadding="8dp"
+            android:paddingVertical="8dp" />
+
+        <Button
+            android:id="@+id/chk_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:drawableStart="@drawable/sel_member_agree_btn"
+            android:text="만14세 이상입니다 (필수)"
+            android:textSize="14dp"
+            android:textColor="@color/gray5"
+            android:gravity="start|center_vertical"
+            android:drawablePadding="8dp"
+            android:paddingVertical="8dp"
+            android:layout_marginTop="8dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/chk_utilization"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:drawableStart="@drawable/sel_member_agree_btn"
+                android:text="이용약관 (필수)"
+                android:textSize="14dp"
+                android:textColor="@color/gray5"
+                android:gravity="start|center_vertical"
+                android:drawablePadding="8dp"
+                android:paddingVertical="8dp"/>
+
+            <Button
+                android:id="@+id/btn_utilization_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="@color/transparent"
+                android:text="@string/membership_agreement_01"
+                android:textColor="@color/gray4"
+                android:textSize="14dp"
+                android:padding="0dp"
+                android:minWidth="0dp"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/chk_personal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:drawableStart="@drawable/sel_member_agree_btn"
+                android:text="개인정보수집 및 이용동의 (필수)"
+                android:textSize="14dp"
+                android:textColor="@color/gray5"
+                android:gravity="start|center_vertical"
+                android:drawablePadding="8dp"
+                android:paddingVertical="8dp"/>
+
+            <Button
+                android:id="@+id/btn_personal_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="@color/transparent"
+                android:text="@string/membership_agreement_01"
+                android:textColor="@color/gray4"
+                android:textSize="14dp"
+                android:padding="0dp"
+                android:minWidth="0dp"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/chk_marketing"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:drawableStart="@drawable/sel_member_agree_btn"
+                android:text="마케팅 수신 동의 (선택)"
+                android:textSize="14dp"
+                android:textColor="@color/gray5"
+                android:gravity="start|center_vertical"
+                android:drawablePadding="8dp"
+                android:paddingVertical="8dp"/>
+
+            <Button
+                android:id="@+id/btn_marketing_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="@color/transparent"
+                android:text="@string/membership_agreement_01"
+                android:textColor="@color/gray4"
+                android:textSize="14dp"
+                android:padding="0dp"
+                android:minWidth="0dp"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="20dp"
+        android:enabled="false"
+        android:text="확인"
+        android:fontFamily="@font/pretendard_extrabold"
+        android:textSize="16dp"
+        android:textColor="@color/sel_member_btn"
+        android:background="@drawable/sel_member_btn"/>
+
+</LinearLayout>
