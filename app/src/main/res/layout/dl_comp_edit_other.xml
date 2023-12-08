@@ -14,10 +14,10 @@
         android:background="@drawable/round_gray1_16dp">
 
         <Button
-            android:id="@+id/btn_storage"
+            android:id="@+id/btn_block"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="사진 보관함"
+            android:text="게시글 차단"
             android:textSize="15dp"
             android:textColor="@color/gray6"/>
 
@@ -25,11 +25,25 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/gray2"/>
+
         <Button
-            android:id="@+id/btn_camera"
+            android:id="@+id/btn_report"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="사진 찍기"
+            android:text="게시글 신고"
+            android:textSize="15dp"
+            android:textColor="@color/gray6"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray2"/>
+
+        <Button
+            android:id="@+id/btn_chat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="대화하기"
             android:textSize="15dp"
             android:textColor="@color/gray6"/>
 

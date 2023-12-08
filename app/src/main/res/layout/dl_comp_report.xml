@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingHorizontal="30dp"
+    android:background="@color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_white_20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="24dp"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="신고 / 차단하기"
+                android:gravity="center"
+                android:textSize="16dp"
+                android:textColor="@color/gray6"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <RadioButton
+                    android:id="@+id/rg_btn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="상업성 콘텐츠 또는 스팸"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray5"
+                    android:layoutDirection="rtl"
+                    android:buttonTint="@color/brand"/>
+
+                <RadioButton
+                    android:id="@+id/rg_btn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="음란물 및 혐오성 콘텐츠"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray5"
+                    android:layoutDirection="rtl"
+                    android:buttonTint="@color/brand"/>
+
+                <RadioButton
+                    android:id="@+id/rg_btn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="괴롭힘, 폭력 등"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray5"
+                    android:layoutDirection="rtl"
+                    android:buttonTint="@color/brand"/>
+
+                <RadioButton
+                    android:id="@+id/rg_btn4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="잘못된 정보"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray5"
+                    android:layoutDirection="rtl"
+                    android:buttonTint="@color/brand"/>
+
+                <RadioButton
+                    android:id="@+id/rg_btn5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="기타"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray5"
+                    android:layoutDirection="rtl"
+                    android:buttonTint="@color/brand"/>
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/edit_reason"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:hint="사유 선택입력"
+                android:textSize="15dp"
+                android:textColor="@color/gray3"
+                android:background="@drawable/border_round_gray3_14dp"
+                android:paddingVertical="15dp"
+                android:paddingHorizontal="16dp"
+                android:layout_marginTop="4dp"
+                android:maxLength="500"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="최소 5자, 최대 500자"
+                android:textSize="12dp"
+                android:textColor="@color/gray4"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="20dp">
+
+            <Button
+                android:id="@+id/btn_report"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="신고하기"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:background="@drawable/round_brand_14dp"
+                android:layout_marginEnd="5dp"/>
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="나중에 할게요"
+                android:textSize="14dp"
+                android:textColor="@color/gray5"
+                android:gravity="center"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

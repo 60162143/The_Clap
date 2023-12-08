@@ -65,14 +65,30 @@
             android:orientation="vertical"
             android:layout_marginStart="4dp">
 
-            <TextView
-                android:id="@+id/user_name"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="홍길동"
-                android:fontFamily="@font/pretendard_extrabold"
-                android:textSize="15dp"
-                android:textColor="@color/black"/>
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="홍길동"
+                    android:fontFamily="@font/pretendard_extrabold"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="BEST"
+                    android:fontFamily="@font/pretendard_extrabold"
+                    android:textSize="14dp"
+                    android:textColor="@color/brand"
+                    android:layout_marginStart="4dp"
+                    android:layout_gravity="top"/>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/user_write_time"
@@ -84,16 +100,6 @@
                 android:layout_marginTop="4dp"/>
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="BEST"
-            android:fontFamily="@font/pretendard_extrabold"
-            android:textSize="14dp"
-            android:textColor="@color/brand"
-            android:layout_marginStart="4dp"
-            android:layout_gravity="top"/>
 
         <View
             android:layout_width="0dp"
@@ -120,7 +126,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginStart="48dp">
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/comp_title"
@@ -197,6 +204,7 @@
                 android:layout_marginStart="16dp">
 
                 <ImageButton
+                    android:id="@+id/comp_cmt_btn"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_comment_20dp"

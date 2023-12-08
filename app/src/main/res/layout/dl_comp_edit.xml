@@ -14,10 +14,10 @@
         android:background="@drawable/round_gray1_16dp">
 
         <Button
-            android:id="@+id/btn_storage"
+            android:id="@+id/btn_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="사진 보관함"
+            android:text="게시글 수정"
             android:textSize="15dp"
             android:textColor="@color/gray6"/>
 
@@ -25,11 +25,25 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/gray2"/>
+
         <Button
-            android:id="@+id/btn_camera"
+            android:id="@+id/btn_hide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="사진 찍기"
+            android:text="게시글 숨김"
+            android:textSize="15dp"
+            android:textColor="@color/gray6"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray2"/>
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="게시글 삭제"
             android:textSize="15dp"
             android:textColor="@color/gray6"/>
 

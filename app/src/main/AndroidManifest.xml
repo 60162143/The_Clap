@@ -105,6 +105,18 @@
             android:name=".ui.compliment.ComplimentActivity"
             android:label="Compliment List Activity"
             android:theme="@style/Theme.TheClap"/>
+
+        <!-- 칭찬 글 상세 액티비티 -->
+        <activity
+            android:name=".ui.compliment.ComplimentDetailActivity"
+            android:label="Compliment Detail Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 댓글 상세 액티비티 -->
+        <activity
+            android:name=".ui.compliment.ComplimentCommentDetailActivity"
+            android:label="Compliment Comment Detail Activity"
+            android:theme="@style/Theme.TheClap"/>
     </application>
 
 </manifest>

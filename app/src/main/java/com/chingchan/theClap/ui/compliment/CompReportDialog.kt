@@ -6,25 +6,32 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioGroup
+import com.chingchan.theClap.R
+import com.chingchan.theClap.databinding.DlCompBlockBinding
+import com.chingchan.theClap.databinding.DlCompEditBinding
 import com.chingchan.theClap.databinding.DlCompLoginBinding
+import com.chingchan.theClap.databinding.DlCompReportBinding
 import com.chingchan.theClap.databinding.DlCompWriteUploadImageBinding
 
 
-class CompLoginDialog(context: Context) : Dialog(context) {
-
+class CompReportDialog(context: Context) : Dialog(context) {
     interface OnClickListener {
         fun onClick(type: String) {}
     }
 
     private var clickListener: OnClickListener? = null
 
-    private lateinit var binding: DlCompLoginBinding
+    private lateinit var binding: DlCompReportBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DlCompLoginBinding.inflate(layoutInflater)
+        binding = DlCompReportBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) // 배경 투명하게
@@ -37,25 +44,30 @@ class CompLoginDialog(context: Context) : Dialog(context) {
             // 텍스트에 밑줄 추가
             btnCancel.paintFlags = btnCancel.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 
-            // 카카오 로그인 버튼 클릭
-            btnKakao.setOnClickListener {
-                clickListener?.onClick("KAKAO")
+            // 신고하기 버튼 클릭
+            btnReport.setOnClickListener {
+                clickListener?.onClick("REPORT")
             }
 
-            // 네이버 로그인 버튼 클릭
-            btnNaver.setOnClickListener {
-                clickListener?.onClick("NAVER")
-            }
-
-            // 구글 로그인 버튼 클릭
-            btnGoogle.setOnClickListener {
-                clickListener?.onClick("GOOGLE")
-            }
-
-            // '우선 둘러볼래요' 버튼 클릭
+            // '나중에 할께요' 버튼 클릭
             btnCancel.setOnClickListener {
                 clickListener?.onClick("CANCEL")
             }
+
+            // 사유 입력 텍스트 변화 확인 리스너
+            editReason.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+                override fun afterTextChanged(s: Editable?) {
+                    // 신고하기 버튼 enable
+                    btnReport.isEnabled = editReason.text.isNotEmpty() and (editReason.text.toString().length >= 5)
+
+                    return
+                }
+            })
+
         }
     }
 

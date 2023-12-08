@@ -1017,7 +1017,7 @@
 
             </LinearLayout>
 
-            <!--    스켈레톤 로딩 화면 LinearLayout  면 -->
+            <!-- 스켈레톤 로딩 화면 LinearLayout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -1042,8 +1042,6 @@
                 </com.facebook.shimmer.ShimmerFrameLayout>
 
             </LinearLayout>
-
-
 
         </LinearLayout>
         <!--    /전체를 감싸는 LinearLayout    -->

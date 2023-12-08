@@ -3,28 +3,37 @@ package com.chingchan.theClap.ui.compliment
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Paint
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioGroup
+import com.chingchan.theClap.R
+import com.chingchan.theClap.databinding.DlCompBlockBinding
+import com.chingchan.theClap.databinding.DlCompCmtSortBinding
+import com.chingchan.theClap.databinding.DlCompEditBinding
+import com.chingchan.theClap.databinding.DlCompLoginBinding
+import com.chingchan.theClap.databinding.DlCompReportBinding
 import com.chingchan.theClap.databinding.DlCompWriteUploadImageBinding
 
 
-class CompWriteUploadImageDialog(context: Context) : Dialog(context) {
-
+class CompCmtSortDialog(context: Context) : Dialog(context) {
     interface OnClickListener {
         fun onClick(type: String) {}
     }
 
     private var clickListener: OnClickListener? = null
 
-    private lateinit var binding: DlCompWriteUploadImageBinding
+    private lateinit var binding: DlCompCmtSortBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DlCompWriteUploadImageBinding.inflate(layoutInflater)
+        binding = DlCompCmtSortBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) // 배경 투명하게
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT) // Width 꽉차게
@@ -33,17 +42,18 @@ class CompWriteUploadImageDialog(context: Context) : Dialog(context) {
         setCanceledOnTouchOutside(false)    // 다이얼로그 외부 화면을 터치할 때 다이얼로그가 종료되지 않도록
 
         with(binding){
-            // 사진 보관함 버튼 클릭
-            btnStorage.setOnClickListener {
-                clickListener?.onClick("STORAGE")
+
+            // 최신순 버튼 클릭
+            btnNewest.setOnClickListener {
+                clickListener?.onClick("NEWEST")
             }
 
-            // 사진 찍기 버튼 클릭
-            btnCamera.setOnClickListener {
-                clickListener?.onClick("CAMERA")
+            // 오래된순 버튼 클릭
+            btnOld.setOnClickListener {
+                clickListener?.onClick("OLD")
             }
 
-            // 취소 버튼 클릭
+            // '나중에 할께요' 버튼 클릭
             btnCancel.setOnClickListener {
                 clickListener?.onClick("CANCEL")
             }

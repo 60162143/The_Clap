@@ -48,23 +48,25 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.eventViewpager.adapter = HomeEventViewPagerAdapter(getEventList()) // 어댑터 생성
-        binding.eventViewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
-        binding.eventViewpager.offscreenPageLimit=3
-        binding.eventViewpager.getChildAt(0).overScrollMode=View.OVER_SCROLL_NEVER
+        with(binding){
+            eventViewpager.adapter = HomeEventViewPagerAdapter(getEventList()) // 어댑터 생성
+            eventViewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
+            eventViewpager.offscreenPageLimit=3
+            eventViewpager.getChildAt(0).overScrollMode=View.OVER_SCROLL_NEVER
 
-        val transform = CompositePageTransformer()
-        transform.addTransformer(MarginPageTransformer(30))
+            val transform = CompositePageTransformer()
+            transform.addTransformer(MarginPageTransformer(30))
 
-        transform.addTransformer(ViewPager2.PageTransformer{ view: View, fl: Float ->
-            val v = 1 - abs(fl)
-            view.alpha = 0.5f + v * 0.5f
-            view.scaleY = 0.8f + v * 0.2f
-        })
+            transform.addTransformer(ViewPager2.PageTransformer{ view: View, fl: Float ->
+                val v = 1 - abs(fl)
+                view.alpha = 0.5f + v * 0.5f
+                view.scaleY = 0.8f + v * 0.2f
+            })
 
-        binding.eventViewpager.setPageTransformer(transform)
+            eventViewpager.setPageTransformer(transform)
 
-        loadData()
+            loadData()  // 데이터 가져오기
+        }
     }
 
     override fun onDestroyView() {
@@ -74,8 +76,6 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
-        Log.e("home fragment", "여기는 Resume!!")
     }
 
     // 뷰 페이저에 들어갈 아이템
@@ -96,14 +96,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun showEventData(isLoading: Boolean) {
-        if (isLoading) {
-            binding.fragHomeShimmerLayout.startShimmer()
-            binding.fragHomeShimmerLayout.visibility = View.VISIBLE
-            binding.fragHomeLayout.visibility = View.GONE
-        } else {
-            binding.fragHomeShimmerLayout.stopShimmer()
-            binding.fragHomeShimmerLayout.visibility = View.GONE
-            binding.fragHomeLayout.visibility = View.VISIBLE
+        with(binding){
+            if (isLoading) {
+                fragHomeShimmerLayout.startShimmer()
+                fragHomeShimmerLayout.visibility = View.VISIBLE
+                fragHomeLayout.visibility = View.GONE
+            } else {
+                fragHomeShimmerLayout.stopShimmer()
+                fragHomeShimmerLayout.visibility = View.GONE
+                fragHomeLayout.visibility = View.VISIBLE
+            }
         }
     }
 }

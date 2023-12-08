@@ -8,6 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2
 import com.chingchan.theClap.MainActivity
 import com.chingchan.theClap.R
@@ -24,6 +27,9 @@ import com.chingchan.theClap.ui.login.data.LoginUserReqData
 import com.chingchan.theClap.ui.login.data.LoginUserResData
 import com.chingchan.theClap.ui.login.data.UserData
 import com.chingchan.theClap.ui.toast.customToast
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,6 +40,8 @@ class ComplimentFragment : Fragment() {
     private lateinit var mainActivity: MainActivity
     private var compCatList: ArrayList<CompCatData> = ArrayList()
     private lateinit var compFragCatRecyclerAdapter: CompFragCatRecyclerAdapter
+
+    private var showShimmer: Job? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -78,8 +86,16 @@ class ComplimentFragment : Fragment() {
                 }
             })
 
+
+
+            loadData()  // 데이터 가져오기
+
+
             // 카테고리 데이터 SET
             getCategoryList()
+
+
+
 
             // 지인 칭찬 버튼 클릭 리스너
             btnFriendComp.setOnClickListener(View.OnClickListener {
@@ -158,5 +174,33 @@ class ComplimentFragment : Fragment() {
         })
 
         return compCatList
+    }
+
+    // 스켈레톤 로딩 화면 UI delay
+    private fun loadData() {
+        showShimmer = lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                showEventData(isLoading = true)
+                delay(2000)
+
+                showEventData(isLoading = false)
+            }
+        }
+    }
+
+    private fun showEventData(isLoading: Boolean) {
+        with(binding){
+            if (isLoading) {
+                fragCompShimmerLayout.startShimmer()
+                fragCompShimmerLayout.visibility = View.VISIBLE
+                fragCompLayout.visibility = View.GONE
+                titleConstraintLayout.visibility = View.GONE
+            } else {
+                fragCompShimmerLayout.stopShimmer()
+                fragCompShimmerLayout.visibility = View.GONE
+                fragCompLayout.visibility = View.VISIBLE
+                titleConstraintLayout.visibility = View.VISIBLE
+            }
+        }
     }
 }

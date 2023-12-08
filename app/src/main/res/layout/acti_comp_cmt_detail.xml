@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="칭찬 글"
+            android:text="댓글"
             android:fontFamily="@font/pretendard_medium"
             android:textSize="16dp"
             android:textColor="@color/gray6"
@@ -62,48 +62,47 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_write"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/brand"
-        android:src="@drawable/ic_edit_white"
-        app:borderWidth="0dp"
-        app:fabSize="normal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:contentDescription="@string/frag_home_03"
-        android:scaleType="center"/>
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_cat"
+        android:id="@+id/rv_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/rv_comp_write_cat"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/title_constraint_layout"
-        android:layout_marginHorizontal="16dp"/>
-
-    <View
-        android:id="@+id/underlined"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gray1"
-        android:layout_below="@+id/rv_cat"
-        android:layout_marginTop="20dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_comp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/rv_comp"
+        tools:listitem="@layout/rv_comp_comment"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
-        android:layout_below="@+id/underlined"
-        android:layout_marginHorizontal="16dp"/>
+        android:layout_below="@id/title_constraint_layout"
+        android:layout_marginBottom="64dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/round_top_gray1_24dp"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16dp"
+        android:gravity="center_vertical"
+        android:minHeight="64dp">
+
+        <EditText
+            android:id="@+id/edit_cmt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="댓글을 입력해 주세요"
+            android:textSize="15dp"
+            android:textColor="@color/gray6"
+            android:background="@color/transparent"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:maxLines="3"/>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="48dp"
+            android:layout_height="36dp"
+            android:text="등록"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:background="@drawable/round_brand_18dp" />
+
+    </LinearLayout>
 
 </RelativeLayout>

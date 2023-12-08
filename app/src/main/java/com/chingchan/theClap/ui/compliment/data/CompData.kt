@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class CompData(
     @SerializedName("id") var id: Int = 0,
+    @SerializedName("userId") var userId: Int = 0,      // 임시로 추가... 나중에 수정해야 한다 꼭!!
     @SerializedName("nickname") var nickname: String = "",
     @SerializedName("profile") var profile: String = "",
     @SerializedName("typeId") var typeId: Int = 0,

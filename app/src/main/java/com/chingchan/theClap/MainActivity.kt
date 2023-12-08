@@ -88,7 +88,9 @@ class MainActivity : AppCompatActivity() {
                     startForResult.launch(intent)
                 }
 
+
                 doOnEnd {
+
                     splashScreenView.remove()
                 }
 

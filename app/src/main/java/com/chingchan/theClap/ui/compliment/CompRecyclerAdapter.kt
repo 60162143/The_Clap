@@ -111,18 +111,27 @@ class CompRecyclerAdapter() : RecyclerView.Adapter<CompRecyclerAdapter.RecyclerV
 
         init {
             with(binding){
+                // 유저 프로필 이미지 클릭 리스너
                 compUserImage.setOnClickListener {
                     clickListener?.onClick(adapterPosition, "USER_IMAGE")
                 }
 
+                // 게시글 좋아요 버튼 클릭 리스너
                 compHeartBtn.setOnClickListener {
                     clickListener?.onClick(adapterPosition, "HEART")
                 }
 
+                // 게시글 좋아요 버튼 클릭 리스너
+                compCmtBtn.setOnClickListener {
+                    clickListener?.onClick(adapterPosition, "COMMENT")
+                }
+
+                // 게시글 공유 버튼 클릭 리스너
                 compShareBtn.setOnClickListener {
                     clickListener?.onClick(adapterPosition, "SHARE")
                 }
 
+                // 게시글 전체 클릭 리스너
                 itemView.setOnClickListener {
                     clickListener?.onClick(adapterPosition, "TOTAL")
                 }

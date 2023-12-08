@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -28,11 +29,11 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ComplimentWriteActivity : AppCompatActivity(), UploadImageDialogInterface {
+class ComplimentWriteActivity : AppCompatActivity() {
     private lateinit var binding: ActiCompWriteBinding
     private var compCatData: ArrayList<CompCatData>? = null
     private var curCategoryPosition = 0
-    private val uploadImageDialog: CompWriteUploadImageDialog by lazy { CompWriteUploadImageDialog(this, this) }
+    private val uploadImageDialog: CompWriteUploadImageDialog by lazy { CompWriteUploadImageDialog(this) }
     private val uploadImageAdapter: UploadImageRecyclerAdapter by lazy { UploadImageRecyclerAdapter() }
     private var uploadImageURIList: ArrayList<UploadImageURI>? = ArrayList()
 
@@ -176,6 +177,22 @@ class ComplimentWriteActivity : AppCompatActivity(), UploadImageDialogInterface 
                     btnConfirm.isEnabled = getEditTextIsEmpty() // 제목과 칭찬할 내용 모두 입력시에만 확인 버튼 활성화
                 }
             })
+
+            // 업로드 이미지 다이얼로그 클릭 리스너
+            uploadImageDialog.setListener(object : CompWriteUploadImageDialog.OnClickListener{
+                override fun onClick(type: String) {
+                    if(type == "STORAGE"){
+                        Log.e("uploadImageDialog", "STORAGE")
+                        checkPermission(UploadImageType.STORAGE.name, UploadImageType.STORAGE.code)
+                    }else if(type == "CAMERA"){
+                        Log.e("uploadImageDialog", "CAMERA")
+                        checkPermission(UploadImageType.CAMERA.name, UploadImageType.CAMERA.code)
+                    }else if(type == "CANCEL"){
+                        Log.e("uploadImageDialog", "CANCEL")
+                        uploadImageDialog.dismiss()
+                    }
+                }
+            })
         }
     }
 
@@ -237,21 +254,6 @@ class ComplimentWriteActivity : AppCompatActivity(), UploadImageDialogInterface 
         } else {
             this.getSerializableExtra(key) as T?
         }
-    }
-
-    // 이미지 업로드 다이얼로그 사진보관함 버튼 클릭
-    override fun onStorageBtnClicked() {
-        checkPermission(UploadImageType.STORAGE.name, UploadImageType.STORAGE.code)
-    }
-
-    // 이미지 업로드 다이얼로그 사진찍기 버튼 클릭
-    override fun onCameraBtnClicked() {
-        checkPermission(UploadImageType.CAMERA.name, UploadImageType.CAMERA.code)
-    }
-
-    // 이미지 업로드 다이얼로그 취소 버튼 클릭
-    override fun onCancelBtnClicked() {
-        uploadImageDialog.dismiss()
     }
 
     // 권한 확인

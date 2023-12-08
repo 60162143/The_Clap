@@ -23,7 +23,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="지금 로그인 하면"
+                android:text="칭찬 글을 보려면"
                 android:gravity="center"
                 android:textSize="16dp"
                 android:textColor="@color/gray6"/>
@@ -31,10 +31,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="더 많은 글을 보고 공유할 수 있어요."
+                android:text="먼저 글을 작성해주세요."
                 android:gravity="center"
                 android:textSize="16dp"
                 android:textColor="@color/gray6"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="어떤 것도 좋아요!"
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textColor="@color/gray5"
+                android:layout_marginTop="8dp"/>
 
         </LinearLayout>
 
@@ -45,47 +54,39 @@
             android:paddingHorizontal="20dp"
             android:paddingBottom="20dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/btn_kakao"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:src="@drawable/ic_kakao"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/btn_naver"/>
+                <Button
+                    android:id="@+id/btn_friend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="지인 칭찬하기"
+                    android:textSize="14dp"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_brand_14dp"
+                    android:layout_marginEnd="5dp"/>
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/btn_naver"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:src="@drawable/ic_naver"
-                    app:layout_constraintLeft_toRightOf="@id/btn_kakao"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/btn_google"/>
+                <Button
+                    android:id="@+id/btn_self"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="셀프 칭찬하기"
+                    android:textSize="14dp"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_brand_14dp"
+                    android:layout_marginStart="5dp"/>
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/btn_google"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:src="@drawable/ic_google"
-                    app:layout_constraintLeft_toRightOf="@id/btn_naver"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btn_cancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="우선 둘러볼게요"
+                android:text="나중에 할게요"
                 android:textSize="14dp"
                 android:textColor="@color/gray5"
                 android:gravity="center"
