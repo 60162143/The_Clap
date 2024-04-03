@@ -157,26 +157,282 @@
 
 <br />
 
-### **8. 기타**
+### **6. 기타**
 
   - #### **1. 사용 라이브러리**
-
-    - **Glide Library** : 이미지를 빠르고 효율적으로 불러올 수 있게 도와주는 라이브러리
+    - **Coroutine Library** : 가벼운 스레드(Light-weight thread)로 동시성(Concurrency) 작업을 간편하게 처리할 수 있게 해주는 역할, 코루틴을 통해 UI 스레드가 중단되는 문제를 효율적으로 처리할 수 있음
       <details>
-      <summary>예시 접기/펼치기</summary>
+      <summary>적용 코드 접기/펼치기</summary>
       
-      ```java
-        Glide.with(holder.itemView)                     // View, Fragment 혹은 Activity로부터 Context를 GET
-                .load(Uri.parse(photo.getPhotoPath()))  // 이미지를 로드, 다양한 방법으로 이미지를 불러올 수 있음
-                .placeholder(R.drawable.preImage)       // 이미지가 로드되기 전 보여줄 이미지 설정
-                .error(R.drawable.errorImage)           // 리소스를 불러오다가 에러가 발생했을 때 보여줄 이미지 설정
-                .fallback(R.drawable.nullImage)         // Load할 URL이 null인 경우 등 비어있을 때 보여줄 이미지 설정
-                .into(holder.photoImage);               // 이미지를 보여줄 View를 지정
+      ```kotlin
+        // Coroutines
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"
+
+        // 데이터를 메인 쓰레드가 백그라운드에서 가져옴으로써 효율적이고 간단하게 구현 가능
+        // 데이터 로드 함수  
+        private fun loadData() {
+          showShimmer = lifecycleScope.launch {  // 결과를 반환하지 않는 코루틴 시작에 사용(결과 반환X), 자체/ 자식 코루틴 실행을 취소할 수 있는 Job 반환
+
+            repeatOnLifecycle(Lifecycle.State.STARTED){  // STARTED 생명주기에 맞춰 코루틴 재시작
+
+              // 카테고리 데이터 GET
+              getCategoryList()  
+              
+            }
+          }
+        }
       ```
       
       </div>
       </details>
+      <br>
+      
+    - **Shimmer Library** : 표시될 정보의 대략적인 형태를 미리 보여줘서 다음 화면까지 부드럽게 연결해주는 역할
+      <details>
+      <summary>적용 코드 접기/펼치기</summary>
+        
+      ```kotlin
+        // Shimmer
+        implementation "com.facebook.shimmer:shimmer:0.5.0"
+      ```
+      
+   
+      ```xml
+          <!--스켈레톤 로딩 화면에서 보여줄 layout을 작성한다. 위에서 작성한 아이템의 기본 구조와 유사하게 작성하며 백그라운드 색상은 흰색이 아닌 유색으로 지정해줘야 반짝이는 효과를 나타낼 수 있다.-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
+                <!-- 스켈레톤 UI로 표시될 뷰들을 추가합니다 -->
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/frag_noti_shimmer_layout"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/frag_notification_shim" />
+
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+            </LinearLayout>
+      ```
+      
+      ```kotlin
+        // 스켈레톤 로딩 화면 UI delay
+        private fun loadData() {
+            showShimmer = lifecycleScope.launch {  // 코루틴 내에서 처리
+                repeatOnLifecycle(Lifecycle.State.STARTED){  // STARTED 생명주기에 맞춰 실행
+                    showEventData(isLoading = true)  // 로딩중일때를 의미, Shimmer UI 보이기
+                    delay(1000)  // 1초동안 보이기
+    
+                    getNotificationData()   // 알림 데이터 조회
+    
+                    getFollowMatchCount()   // 서로 팔로잉한 유저 수 조회
+    
+                    showEventData(isLoading = false)  // 로딩완료를 의미, 기존 UI 보이기
+                }
+            }
+        }
+
+        // Shimmer Flag에 대한 UI 변화 SET
+        private fun showEventData(isLoading: Boolean) {
+            with(binding){
+                if (isLoading) {
+                    fragNotiShimmerLayout.startShimmer()  // 로딩 애니메이션 시작
+                    fragNotiShimmerLayout.visibility = View.VISIBLE  // Shimmer Layout 보이기
+                    fragNotiLayout.visibility = View.GONE  // 기존 Layout 숨기기
+                    titleConstraintLayout.visibility = View.GONE  // 기존 Layout 숨기기
+                } else {
+                    fragNotiShimmerLayout.stopShimmer()  // 로딩 애니메이션 종료
+                    fragNotiShimmerLayout.visibility = View.GONE  // Shimmer Layout 숨기기
+                    fragNotiLayout.visibility = View.VISIBLE  // 기존 Layout 보이기
+                    titleConstraintLayout.visibility = View.VISIBLE  // 기존 Layout 보이기
+                }
+            }
+        }
+      ```
+      
+      </div>
+      </details>
+      <br>
+      
+    - **LifeCycle Library** : 액티비티나 프래그먼트의 현재 수명 주기 상태를 기반으로 동작을 자동으로 조절할 수 있는 구성요소를 빌드할 수 있는 클래스 및 인터페이스를 제공
+      <details>
+      <summary>예시 접기/펼치기</summary>
+      
+      ```kotlin
+          // LifeCycle Observe Library
+          implementation 'androidx.lifecycle:lifecycle-process:2.7.0'
+    
+          // 잠금화면을 위한 옵저버
+          class LifeCycleChecker(context: Context) : Application(), LifecycleEventObserver {
+              private var isForeground = false
+              private val lifecycle by lazy { ProcessLifecycleOwner.get().lifecycle }
+          
+              private var lock = true // 잠금 상태 여부 확인
+              private val _context: Context
+          
+              init {
+                  _context = context
+              }
+          
+              override fun onCreate() {
+                  super.onCreate()
+          
+                  lifecycle.addObserver(this) // 옵저버 생성
+              }
+          
+              override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+          
+                  when (event) {
+                      Lifecycle.Event.ON_STOP -> {    // 앱이 백그라운드 상태로 전환
+                          isForeground = false
+          
+                          if (AppLock(_context).isPassLockSet()) {
+                              lock = true // 잠금로 변경
+                          }
+                      }
+          
+                      Lifecycle.Event.ON_START -> {   // 앱이 포그라운드 상태로 전환
+                          isForeground = true
+                          if(lock && AppLock(_context).isPassLockSet() && !AppLock(_context).getDoingPassLock()){
+                              AppLock(_context).setDoingPassLock(true)    // 잠금 진행중 여부 설정
+          
+                              val intent = Intent(_context, MyPageLockPasswordActivity::class.java).apply {
+                                  putExtra(AppLockConst.type, AppLockConst.UNLOCK_PASSWORD)
+                              }
+          
+                              intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                              _context.startActivity(intent)
+                          }
+                      }
+                      else -> {}
+                  }
+              }
+          }
+      ```
+      
+      </div>
+      </details>
+      <br>
+      
+    - **Splash Screen Library** :  기존에 별도로 만들어서 사용하던 Splash 화면이 아닌, API를 통해 앱을 실행했을 때 설정한 Splash 화면을 보여주게 된다.
+      <details>
+      <summary>예시 접기/펼치기</summary>
+      
+      ```kotlin
+          // splashScreen api Library
+          implementation 'androidx.core:core-splashscreen:1.0.1'
+
+          // Main Activity
+          override fun onCreate(savedInstanceState: Bundle?) {
+              super.onCreate(savedInstanceState)
+      
+              splashScreen = installSplashScreen()  // Splash Screen 생성
+              startSplash()  // splash의 애니메이션 설정
+          }
+
+          // splash의 애니메이션 설정
+          private fun startSplash() {
+              splashScreen.setOnExitAnimationListener { splashScreenView ->
+                  val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1f)
+                  val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1f)
+
+                  // 애니메이션 실행
+                  ObjectAnimator.ofPropertyValuesHolder(splashScreenView.iconView, scaleX, scaleY).run {
+                      interpolator = AnticipateInterpolator()
+                      duration = 3000L    // 3초 진행
+      
+                      // 로그인 유저 아이디 있는지 확인
+                      if(UserData.getUserId(applicationContext) == 0){
+                          val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                          startForResult.launch(intent)
+                      }
+      
+      
+                      doOnEnd {
+      
+                          splashScreenView.remove()
+                      }
+      
+                      start()
+                  }
+              }
+          }
+      ```
+      
+      </div>
+      </details>
+      <br>
+      
+    - **Swiperefreshlayout Library** : Layout을 아래로 Swipe 하여 새로고침이 가능한 라이브러리
+      <details>
+      <summary>예시 접기/펼치기</summary>
+      
+      ```kotlin
+        // SwipeRefeshLayout Library
+        implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+      
+        refreshView.setOnRefreshListener {  // 새로고침 시 리스너
+        // 여기서 새로고침 시 작업
+
+          getNotificationData()   // 내소식 데이터 조회
+
+          getFollowMatchCount()   // 서로 팔로잉한 유저 수 조회
+
+          Handler(Looper.getMainLooper()).postDelayed({
+            refreshView.isRefreshing = false   // 새로고침 상태 종료
+          }, 100)
+        }
+      ```
+      
+      </div>
+      </details>
+      <br>
+      
+    - **Glide Library** : 이미지를 빠르고 효율적으로 불러올 수 있게 도와주는 라이브러리
+      <details>
+      <summary>예시 접기/펼치기</summary>
+      
+      ```kotlin
+          // Glide Library
+          implementation 'com.github.bumptech.glide:glide:4.12.0'
+    
+        with(binding){
+                GlideApp
+                    .with(rvImage.context) // View, Fragment 혹은 Activity로부터 Context를 가져온다.
+                    .load(compImageData.uri)  // 이미지를 로드한다. 다양한 방법으로 이미지를 불러올 수 있다. (Bitmap, Drawable, String, Uri, File, ResourId(Int), ByteArray)
+                    .into(rvImage)  // 이미지를 보여줄 View를 지정한다.
+            }
+      ```
+      
+      </div>
+      </details>
+      <br>
+      
+    - **Glide Library** : 이미지를 빠르고 효율적으로 불러올 수 있게 도와주는 라이브러리
+      <details>
+      <summary>예시 접기/펼치기</summary>
+      
+      ```kotlin
+        with(binding){
+                GlideApp
+                    .with(rvImage.context) // View, Fragment 혹은 Activity로부터 Context를 가져온다.
+                    .load(compImageData.uri)  // 이미지를 로드한다. 다양한 방법으로 이미지를 불러올 수 있다. (Bitmap, Drawable, String, Uri, File, ResourId(Int), ByteArray)
+                    .into(rvImage)  // 이미지를 보여줄 View를 지정한다.
+            }
+      ```
+      
+      </div>
+      </details>
     - **Styleable Toast Library** : 폰트, 배경색, 아이콘 등 토스트의 전반적인 디자인을 themes.xml에서 원하는 대로 지정해 줄 수 있는 라이브러리
       <details>
       <summary>예시 접기/펼치기</summary>
