@@ -7,23 +7,14 @@
 - 📝 [프로젝트 개요](#-프로젝트-개요)
 - 🛠 [기술 및 도구](#-기술-및-도구)
 - 👨🏻‍💻 [기능 구현](#-기능-구현)
-  - [메인 화면](#1-메인-화면)
-  - [로그인/회원가입 화면](#2-로그인-화면)
-  - [가게 상세 화면](#3-가게-상세-화면)
-    - [가게 정보 조회 화면](#1-가게-정보-조회-화면)
-    - [리뷰 화면](#2-리뷰-화면)
-    - [주문/결제 화면](#3-주문-결제-화면)
-  - [협업 화면](#4-협업-화면)
-  - [지도 화면](#5-지도-화면)
-  - [가방 화면](#6-가방-화면)
-  - [마이페이지 화면](#7-마이페이지-화면)
-    - [내 정보 조회 화면](#1-내-정보-조회-화면)
-    - [내 정보 수정 화면](#2-내-정보-수정-화면)
-  - [기타](#8-기타)
+  - [로그인 및 회원가입 화면](#1-로그인-및-회원가입-화면)
+  - [메인 화면](#2-메인-화면)
+  - [게시글 조회 화면](#3-게시글-조회-화면)
+  - [내소식 화면](#4-내소식-화면)
+  - [마이페이지 화면](#5-마이페이지-화면)
+  - [기타](#6-기타)
     - [사용 라이브러리](#1-사용-라이브러리)
-    - [사용 API](#2-사용-api)
-- 📓 [ERD 설계](#-데이터베이스)
-- 📮 [데이터 크롤링](#-데이터-크롤링)
+    - [소셜-로그인 API](#2-소셜-로그인-api)
 
 </b>
 
@@ -66,7 +57,7 @@
 
 
 
-### **1. 로그인/회원가입 화면**
+### **1. 로그인 및 회원가입 화면**
 ***
   <details>
   <summary>View 접기/펼치기</summary>
@@ -262,6 +253,10 @@
       
       </div>
       </details>
+      <details>
+      <summary>적용 화면 접기/펼치기</summary>
+        <img width="300" height="600" alt="Shimmer 화면" src="https://github.com/60162143/The_Clap/assets/33407087/bb3e8201-65ec-473e-ae51-b0e0050a160d" />
+      </details>
       <br>
       
     - **LifeCycle Library** : 액티비티나 프래그먼트의 현재 수명 주기 상태를 기반으로 동작을 자동으로 조절할 수 있는 구성요소를 빌드할 수 있는 클래스 및 인터페이스를 제공
@@ -321,6 +316,10 @@
       ```
       
       </div>
+      </details>
+      <details>
+      <summary>적용 화면 접기/펼치기</summary>
+        <img width="300" height="600" alt="비밀번호 화면" src="https://github.com/60162143/The_Clap/assets/33407087/34e61d94-46bf-4774-9d8c-19bc85dfa724" />
       </details>
       <br>
       
@@ -395,6 +394,10 @@
       ```
       
       </div>
+      </details>
+      <details>
+      <summary>적용 화면 접기/펼치기</summary>
+        <img width="300" height="600" alt="SwipeRefreshLayout 화면" src="https://github.com/60162143/The_Clap/assets/33407087/f7482c90-a1e2-4c1d-99a1-2d9d20c8816b" />
       </details>
       <br>
       
@@ -532,7 +535,7 @@
 
     - **Kakao Login API** : 카카오에서 제공하는 카카오 로그인 API
       <details>
-      <summary>예시 접기/펼치기</summary>
+      <summary>적용 코드 접기/펼치기</summary>
       
       ```kotlin
         // Kakao Login api
@@ -609,7 +612,7 @@
       
     - **Naver Login API** : 네이버에서 제공하는 카카오 로그인 API
       <details>
-      <summary>예시 접기/펼치기</summary>
+      <summary>적용 코드 접기/펼치기</summary>
       
       ```kotlin
         // Naver Login api
@@ -680,7 +683,7 @@
       
     - **Google Login API** : 구글에서 제공하는 카카오 로그인 API
       <details>
-      <summary>예시 접기/펼치기</summary>
+      <summary>적용 코드 접기/펼치기</summary>
       
       ```kotlin
         implementation 'com.google.gms:google-services:4.4.0'
@@ -743,22 +746,3 @@
       </div>
       </details>
 <br />
-
-## **📓 데이터베이스**
-### ERD 설계
-  <details>
-  <summary>ERD 접기/펼치기</summary>
-    
-  <img width="1800" alt="erd" src="https://github.com/60162143/itda-Server/assets/33407087/107ae9fb-7c0d-41ca-9d09-fe5aa1f30197">
-    
-  </div>
-  </details>
-
-[**Itda Rest API 자세히 보기**](https://github.com/60162143/itda-Server)
-
-<br />
-
-## **📮 데이터 크롤링**
-
-[**Itda Data Crawling 자세히 보기**](https://github.com/60162143/itda-data-Crawling)
-
