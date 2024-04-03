@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="30dp"
+    android:background="@color/transparent"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_white_20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="24dp"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="정말 계정 탈퇴를 진행하시겠습니까?"
+                android:fontFamily="@font/pretendard_medium"
+                android:gravity="center"
+                android:textSize="16dp"
+                android:textColor="@color/gray6"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <RadioButton
+                    android:id="@+id/rg_btn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="상업성 콘텐츠 또는 스팸이 많아요"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray5"
+                    android:layoutDirection="rtl"
+                    android:buttonTint="@color/brand"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/rg_btn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="음란물 및 혐오성 콘텐츠가 많아요"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray5"
+                    android:layoutDirection="rtl"
+                    android:buttonTint="@color/brand"/>
+
+                <RadioButton
+                    android:id="@+id/rg_btn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="잘못된 정보/원하지 않는 정보가 많아요"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray5"
+                    android:layoutDirection="rtl"
+                    android:buttonTint="@color/brand"/>
+
+                <RadioButton
+                    android:id="@+id/rg_btn4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="기타"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray5"
+                    android:layoutDirection="rtl"
+                    android:buttonTint="@color/brand"/>
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/edit_reason"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:hint="사유 선택입력"
+                android:textSize="15dp"
+                android:textColor="@color/gray3"
+                android:background="@drawable/border_round_gray3_14dp"
+                android:paddingVertical="15dp"
+                android:paddingHorizontal="16dp"
+                android:layout_marginTop="4dp"
+                android:maxLength="500"
+                android:gravity="top"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="최소 5자, 최대 500자"
+                android:textSize="12dp"
+                android:textColor="@color/gray4"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="20dp">
+
+            <Button
+                android:id="@+id/btn_unlink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="탈퇴하기"
+                android:fontFamily="@font/pretendard_medium"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:background="@drawable/round_brand_14dp"
+                android:layout_marginEnd="5dp"/>
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="뒤로가기"
+                android:textSize="14dp"
+                android:textColor="@color/gray5"
+                android:gravity="center"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

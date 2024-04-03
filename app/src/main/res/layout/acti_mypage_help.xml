@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginVertical="6dp"
+            android:layout_marginStart="8dp"
+            android:padding="8dp"
+            android:background="@color/transparent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="고객센터/운영센터"
+            android:fontFamily="@font/pretendard_medium"
+            android:textSize="16dp"
+            android:textColor="@color/gray6"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btn_back"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:background="@drawable/border_round_brand_light_18dp"-->
+<!--                android:paddingVertical="16dp"-->
+<!--                android:paddingHorizontal="20dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginHorizontal="16dp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="무엇을 도와드릴까요?"-->
+<!--                    android:textSize="15dp"-->
+<!--                    android:textColor="@color/brand"-->
+<!--                    android:drawableStart="@drawable/ic_symbol"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:drawablePadding="10dp"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/edit_sch"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="48dp"-->
+<!--                    android:background="@drawable/round_gray1_14dp"-->
+<!--                    android:drawableStart="@drawable/ic_search_gray_24dp"-->
+<!--                    android:drawablePadding="4dp"-->
+<!--                    android:paddingHorizontal="12dp"-->
+<!--                    android:hint="검색어를 입력하세요."-->
+<!--                    android:textSize="15dp"-->
+<!--                    android:textColor="@color/gray6"-->
+<!--                    android:maxLines="1"-->
+<!--                    android:inputType="text"-->
+<!--                    android:imeOptions="actionSearch"-->
+<!--                    android:layout_marginTop="10dp"/>-->
+
+<!--            </LinearLayout>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="자주 묻는 질문"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="16dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_faq"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/rv_mypage_faq"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="20dp"
+                android:paddingHorizontal="28dp"
+                android:background="@drawable/round_gray1_16dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="혹시 피해 받고 계신가요?"
+                    android:textSize="16dp"
+                    android:textColor="@color/gray6"
+                    android:drawableStart="@drawable/ic_warning"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="피싱, 권리침해, 유해정보, 불법촬영물 등으로 피해를 받고 계신 경우 저희에게 알려주세요!"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray6"
+                    android:layout_marginTop="8dp"/>
+
+                <Button
+                    android:id="@+id/btn_report"
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:text="바로 신고하기"
+                    android:textSize="14dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/round_brand_14dp"
+                    android:layout_marginTop="20dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="40dp"
+                android:layout_marginHorizontal="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="약관 및 정책"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
+
+                <LinearLayout
+                    android:id="@+id/btn_agreement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="14dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이용약관"
+                        android:textSize="15dp"
+                        android:textColor="@color/gray6"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_arrow_right_gray4_16dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_personal_policy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="14dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="개인정보처리방침"
+                        android:textSize="15dp"
+                        android:textColor="@color/gray6"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_arrow_right_gray4_16dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_manage_policy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="14dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="운영정책"
+                        android:textSize="15dp"
+                        android:textColor="@color/gray6"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_arrow_right_gray4_16dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_open_source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="14dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="오픈소스 라이선스"
+                        android:textSize="15dp"
+                        android:textColor="@color/gray6"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_arrow_right_gray4_16dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="20dp"
+                android:paddingHorizontal="28dp"
+                android:background="@drawable/round_gray1_16dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="고객 문의"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawablePadding="10dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="theclap.info＠gmail. com\n(주말/공휴일 제외)"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray4"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

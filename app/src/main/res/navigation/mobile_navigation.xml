@@ -7,32 +7,32 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.chingchan.theClap.ui.home.HomeFragment"
+        android:name="com.chingchan.theClap.ui.home.fragment.HomeFragment"
         android:label="@string/botm_navi_01"
         tools:layout="@layout/frag_home" />
 
     <fragment
         android:id="@+id/navigation_compliment"
-        android:name="com.chingchan.theClap.ui.compliment.ComplimentFragment"
+        android:name="com.chingchan.theClap.ui.compliment.fragment.ComplimentFragment"
         android:label="@string/botm_navi_02"
         tools:layout="@layout/frag_comp" />
 
     <fragment
         android:id="@+id/navigation_notification"
-        android:name="com.chingchan.theClap.ui.notification.NotificationFragment"
+        android:name="com.chingchan.theClap.ui.notification.fragment.NotificationFragment"
         android:label="@string/botm_navi_03"
-        tools:layout="@layout/frag_noti" />
+        tools:layout="@layout/frag_notification" />
 
-    <fragment
-        android:id="@+id/navigation_chatting"
-        android:name="com.chingchan.theClap.ui.chatting.ChattingFragment"
-        android:label="@string/botm_navi_04"
-        tools:layout="@layout/frag_noti" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_chatting"-->
+<!--        android:name="com.chingchan.theClap.ui.chatting.ChattingFragment"-->
+<!--        android:label="@string/botm_navi_04"-->
+<!--        tools:layout="@layout/frag_noti" />-->
 
     <fragment
         android:id="@+id/navigation_my_page"
-        android:name="com.chingchan.theClap.ui.myPage.MyPageFragment"
+        android:name="com.chingchan.theClap.ui.myPage.fragment.MyPageFragment"
         android:label="@string/botm_navi_05"
-        tools:layout="@layout/frag_noti" />
+        tools:layout="@layout/frag_notification" />
 
 </navigation>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="30dp"
+    android:background="@color/transparent"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_white_20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="24dp"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/text_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="username님을 정말 신고하시겠습니까?"
+                android:fontFamily="@font/pretendard_medium"
+                android:gravity="center"
+                android:textSize="16dp"
+                android:textColor="@color/gray6"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="20dp">
+
+            <Button
+                android:id="@+id/btn_report"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="신고하기"
+                android:fontFamily="@font/pretendard_medium"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:background="@drawable/round_brand_14dp"
+                android:layout_marginEnd="5dp"/>
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="아니오"
+                android:textSize="14dp"
+                android:textColor="@color/gray5"
+                android:gravity="center"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

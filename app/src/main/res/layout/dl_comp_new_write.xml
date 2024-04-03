@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingHorizontal="30dp"
-    android:background="@color/transparent">
+    android:background="@color/transparent"
+    android:gravity="center_horizontal">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/round_white_20dp"
         android:orientation="vertical">
@@ -24,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="칭찬 글을 보려면"
+                android:fontFamily="@font/pretendard_medium"
                 android:gravity="center"
                 android:textSize="16dp"
                 android:textColor="@color/gray6"/>
@@ -32,6 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="먼저 글을 작성해주세요."
+                android:fontFamily="@font/pretendard_medium"
                 android:gravity="center"
                 android:textSize="16dp"
                 android:textColor="@color/gray6"/>
@@ -40,6 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="어떤 것도 좋아요!"
+                android:fontFamily="@font/pretendard_medium"
                 android:gravity="center"
                 android:textSize="14dp"
                 android:textColor="@color/gray5"
@@ -63,22 +66,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="지인 칭찬하기"
+                    android:fontFamily="@font/pretendard_medium"
                     android:textSize="14dp"
                     android:textColor="@color/white"
                     android:layout_weight="1"
-                    android:background="@drawable/round_brand_14dp"
-                    android:layout_marginEnd="5dp"/>
+                    android:background="@drawable/round_brand_14dp"/>
 
-                <Button
-                    android:id="@+id/btn_self"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="셀프 칭찬하기"
-                    android:textSize="14dp"
-                    android:textColor="@color/white"
-                    android:layout_weight="1"
-                    android:background="@drawable/round_brand_14dp"
-                    android:layout_marginStart="5dp"/>
+<!--                <Button-->
+<!--                    android:id="@+id/btn_self"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="셀프 칭찬하기"-->
+<!--                    android:fontFamily="@font/pretendard_medium"-->
+<!--                    android:textSize="14dp"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/round_brand_14dp"-->
+<!--                    android:layout_marginStart="5dp"/>-->
 
             </LinearLayout>
 

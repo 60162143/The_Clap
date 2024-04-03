@@ -6,18 +6,18 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class CompCatData(
-    @SerializedName("boardTypeId") var boardTypeId: Int = 0,
+    @SerializedName("boardTypeId") var boardTypeId: Int? = null,
     @SerializedName("name") var name: String = "전체",
-    var count: Int = 0,
-    var isSelect: Boolean = false,
-    @SerializedName("createdTs") var createdTs: String = ""
+    @SerializedName("count") var count: Int = 0,
+    @SerializedName("new") var new: Boolean = false,
+    var isSelect: Boolean = false
 ) : Parcelable {
     override fun toString(): String {
         return "boardTypeId:$boardTypeId" +
                 ", name:$name" +
                 ", count:$count" +
-                ", isSelect:$isSelect" +
-                ", createdTs:$createdTs"
+                ", new:$new" +
+                ", isSelect:$isSelect"
     }
 
     override fun equals(other: Any?): Boolean {

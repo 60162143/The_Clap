@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_total"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_gray1_16dp"
+    android:padding="12dp"
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/notification_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_noti_heart"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="28dp">
+
+                <TextView
+                    android:id="@+id/text_create"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="2분전"
+                    android:textSize="13dp"
+                    android:textColor="@color/gray4"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"/>
+
+                <ImageButton
+                    android:id="@+id/btn_delete"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_close_gray4"
+                    android:background="@color/transparent"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:bufferType="spannable"
+                android:text="Username가 내글에 좋아요를 눌러줬어요!"
+                android:textSize="15dp"
+                android:textColor="@color/gray6"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_follow"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:text="팔로잉하러 가기"
+        android:textSize="14dp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_brand_12dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+</LinearLayout>

@@ -16,8 +16,9 @@
         <Button
             android:id="@+id/btn_storage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="사진 보관함"
+            android:fontFamily="@font/pretendard_medium"
             android:textSize="15dp"
             android:textColor="@color/gray6"/>
 
@@ -28,8 +29,9 @@
         <Button
             android:id="@+id/btn_camera"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="사진 찍기"
+            android:fontFamily="@font/pretendard_medium"
             android:textSize="15dp"
             android:textColor="@color/gray6"/>
 
@@ -38,7 +40,7 @@
     <Button
         android:id="@+id/btn_cancel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:text="취소"
         android:textSize="15dp"
         android:textColor="@color/gray6"

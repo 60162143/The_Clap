@@ -22,6 +22,7 @@
     <color name="gray6">#2E2E2E</color>
 
     <color name="brand">#4885EC</color>
+    <color name="brand_light">#ACCBFF</color>
     <color name="brand_dark">#1E51B5</color>
 
     <color name="error">#FF3D3D</color>

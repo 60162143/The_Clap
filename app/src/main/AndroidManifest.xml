@@ -20,21 +20,32 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
 
-    <!-- 권한 그룹 : NOTIFICATION-->
-    <uses-permission
-        android:name="android.permission.POST_NOTIFICATIONS"
-        android:minSdkVersion="33" />
+<!--    &lt;!&ndash; 권한 그룹 : NOTIFICATION&ndash;&gt;-->
+<!--    <uses-permission-->
+<!--        android:name="android.permission.POST_NOTIFICATIONS"-->
+<!--        android:minSdkVersion="33" />-->
 
     <application
+        android:name=".globalFunction.InitApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_the_clap_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheClap"
         tools:targetApi="34"
         android:usesCleartextTraffic="true">
+
+        <provider
+            android:authorities="com.chingchan.theClap.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths">
+            </meta-data>
+        </provider>
 
         <activity
             android:name=".MainActivity"
@@ -64,59 +75,162 @@
             </intent-filter>
         </activity>
 
+
+        <!-- 랭킹 전체보기 액티비티 -->
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.home.activity.HomeRankingCompActivity"
+            android:label="Ranking Complication Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+
+        <!-- 검색 액티비티 -->
+        <activity
+            android:name=".ui.search.activity.SearchActivity"
+            android:label="Search Activity"
+            android:theme="@style/Theme.TheClap"
+            android:windowSoftInputMode="adjustPan"/>
+
+
+
+        <!-- 로그인 액티비티 -->
+        <activity
+            android:name=".ui.login.activity.LoginActivity"
             android:label="Login"
             android:theme="@style/Theme.TheClap"/>
 
         <!-- 로그인 웹뷰 액티비티 -->
         <activity
-            android:name=".ui.login.LoginWebViewActivity"
+            android:name=".ui.login.activity.LoginWebViewActivity"
             android:label="Login WebView Activity"
             android:theme="@style/Theme.TheClap"/>
 
         <!-- 로그인 회원가입 액티비티 -->
         <activity
-            android:name=".ui.login.LoginMembershipActivity"
+            android:name=".ui.login.activity.LoginMembershipActivity"
             android:label="Login Membership Activity"
             android:theme="@style/Theme.TheClap"/>
 
         <!-- 로그인 동의 액티비티 -->
         <activity
-            android:name=".ui.login.LoginMembershipAgreementActivity"
+            android:name=".ui.login.activity.LoginMembershipAgreementActivity"
             android:label="Login Membership Agreement Activity"
             android:theme="@style/Theme.TheClap"/>
 
         <!-- 로그인 권한 액티비티 -->
         <activity
-            android:name=".ui.login.LoginMembershipAuthorityActivity"
+            android:name=".ui.login.activity.LoginMembershipAuthorityActivity"
             android:label="Login Membership Authority Activity"
             android:theme="@style/Theme.TheClap"/>
 
+
+
         <!-- 칭찬 글 작성 액티비티 -->
         <activity
-            android:name=".ui.compliment.ComplimentWriteActivity"
+            android:name=".ui.compliment.activity.ComplimentWriteActivity"
             android:label="Compliment Write Activity"
             android:theme="@style/Theme.TheClap"
             android:windowSoftInputMode="adjustPan"/>
 
         <!-- 칭찬 글 목록 액티비티 -->
         <activity
-            android:name=".ui.compliment.ComplimentActivity"
+            android:name=".ui.compliment.activity.ComplimentActivity"
             android:label="Compliment List Activity"
             android:theme="@style/Theme.TheClap"/>
 
         <!-- 칭찬 글 상세 액티비티 -->
         <activity
-            android:name=".ui.compliment.ComplimentDetailActivity"
+            android:name=".ui.compliment.activity.ComplimentDetailActivity"
             android:label="Compliment Detail Activity"
             android:theme="@style/Theme.TheClap"/>
 
         <!-- 댓글 상세 액티비티 -->
         <activity
-            android:name=".ui.compliment.ComplimentCommentDetailActivity"
+            android:name=".ui.compliment.activity.ComplimentCommentDetailActivity"
             android:label="Compliment Comment Detail Activity"
             android:theme="@style/Theme.TheClap"/>
+
+        <!-- 댓글 수정 액티비티 -->
+        <activity
+            android:name=".ui.compliment.activity.ComplimentCommentEditActivity"
+            android:label="Compliment Comment Edit Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+
+
+        <!-- 마이페이지 프로필 수정 액티비티 -->
+        <activity
+            android:name=".ui.myPage.activity.MyPageProfileActivity"
+            android:label="MyPage Profile Set Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 타 유저 프로필 액티비티 -->
+        <activity
+            android:name=".ui.myPage.activity.MyPageProfileOtherActivity"
+            android:label="MyPage Other Profile Set Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 마이페이지 받은, 작성한 칭찬 게시글 조회 액티비티 -->
+        <activity
+            android:name=".ui.myPage.activity.MyPageCompActivity"
+            android:label="MyPage Compliment Get Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 마이페이지 북마크한 게시글 조회 액티비티 -->
+        <activity
+            android:name=".ui.myPage.activity.MyPageBookmarkActivity"
+            android:label="MyPage Bookmark Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 마이페이지 내활동 액티비티 -->
+        <activity
+            android:name=".ui.myPage.activity.MyPageNotificationActivity"
+            android:label="MyPage Notification Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 마이페이지 FAQ 조회 액티비티 -->
+        <activity
+            android:name=".ui.myPage.activity.MyPageFAQActivity"
+            android:label="MyPage FAQ Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 마이페이지 설정 액티비티 -->
+        <activity
+            android:name=".ui.myPage.activity.MyPageSettingActivity"
+            android:label="MyPage Setting Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 마이페이지 보안 액티비티 -->
+        <activity
+            android:name=".ui.myPage.activity.MyPageSecurityActivity"
+            android:label="MyPage Security Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 마이페이지 알림 액티비티 -->
+        <activity
+            android:name=".ui.myPage.activity.MyPagePushActivity"
+            android:label="MyPage Push Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 마이페이지 공지사항 액티비티 -->
+        <activity
+            android:name=".ui.myPage.activity.MyPageAnnounceActivity"
+            android:label="MyPage Announce Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+        <!-- 마이페이지 고객센터/운영정책 액티비티 -->
+        <activity
+            android:name=".ui.myPage.activity.MyPageHelpActivity"
+            android:label="MyPage Help Activity"
+            android:theme="@style/Theme.TheClap"/>
+
+<!--        &lt;!&ndash; 마이페이지 잠금 비밀번호 관리 액티비티 &ndash;&gt;-->
+<!--        <activity-->
+<!--            android:name=".ui.myPage.activity.MyPageLockPasswordActivity"-->
+<!--            android:label="MyPage Lock Password Activity"-->
+<!--            android:theme="@style/Theme.TheClap"-->
+<!--            android:windowSoftInputMode="stateHidden"/>-->
+
+
     </application>
 
 </manifest>

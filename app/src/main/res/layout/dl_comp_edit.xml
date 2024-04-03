@@ -16,8 +16,9 @@
         <Button
             android:id="@+id/btn_edit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="게시글 수정"
+            android:fontFamily="@font/pretendard_medium"
             android:textSize="15dp"
             android:textColor="@color/gray6"/>
 
@@ -29,8 +30,9 @@
         <Button
             android:id="@+id/btn_hide"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="게시글 숨김"
+            android:fontFamily="@font/pretendard_medium"
             android:textSize="15dp"
             android:textColor="@color/gray6"/>
 
@@ -42,8 +44,9 @@
         <Button
             android:id="@+id/btn_delete"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="게시글 삭제"
+            android:fontFamily="@font/pretendard_medium"
             android:textSize="15dp"
             android:textColor="@color/gray6"/>
 
@@ -52,7 +55,7 @@
     <Button
         android:id="@+id/btn_cancel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:text="취소"
         android:textSize="15dp"
         android:textColor="@color/gray6"

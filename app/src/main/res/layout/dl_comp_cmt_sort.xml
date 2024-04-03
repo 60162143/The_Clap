@@ -16,8 +16,9 @@
         <Button
             android:id="@+id/btn_newest"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="최신순"
+            android:fontFamily="@font/pretendard_medium"
             android:textSize="15dp"
             android:textColor="@color/gray6"/>
 
@@ -29,8 +30,9 @@
         <Button
             android:id="@+id/btn_old"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="오래된순"
+            android:fontFamily="@font/pretendard_medium"
             android:textSize="15dp"
             android:textColor="@color/gray6"/>
 
@@ -39,7 +41,7 @@
     <Button
         android:id="@+id/btn_cancel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:text="취소"
         android:textSize="15dp"
         android:textColor="@color/gray6"

@@ -153,37 +153,6 @@
 
         </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/chk_marketing"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/transparent"
-                android:drawableStart="@drawable/sel_member_agree_btn"
-                android:text="마케팅 수신 동의 (선택)"
-                android:textSize="14dp"
-                android:textColor="@color/gray5"
-                android:gravity="start|center_vertical"
-                android:drawablePadding="8dp"
-                android:paddingVertical="8dp"/>
-
-            <Button
-                android:id="@+id/btn_marketing_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:background="@color/transparent"
-                android:text="@string/membership_agreement_01"
-                android:textColor="@color/gray4"
-                android:textSize="14dp"
-                android:padding="0dp"
-                android:minWidth="0dp"/>
-
-        </FrameLayout>
-
     </LinearLayout>
 
     <View

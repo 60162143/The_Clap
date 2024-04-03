@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginVertical="6dp"
+            android:layout_marginStart="8dp"
+            android:padding="8dp"
+            android:background="@color/transparent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필 설정"
+            android:fontFamily="@font/pretendard_medium"
+            android:textSize="16dp"
+            android:textColor="@color/gray6"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btn_back"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <FrameLayout
+                android:layout_width="116dp"
+                android:layout_height="100dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="120dp"
+                    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/gray2"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="8dp">
+
+                    <ImageButton
+                        android:id="@+id/user_image"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:padding="0dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_user_blank" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="120dp"
+                    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/white"
+                    android:layout_gravity="bottom|end">
+
+                    <ImageButton
+                        android:id="@+id/btn_profile_image"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_camera_white_20dp"
+                        android:background="@color/gray5"
+                        android:padding="0dp"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edit_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_round_gray3_14dp"
+                    android:paddingVertical="15dp"
+                    android:paddingHorizontal="16dp"
+                    android:hint="사용하실 닉네임을 입력하세요."
+                    android:textSize="15dp"
+                    android:textColor="@color/gray6"
+                    android:maxLines="1"
+                    android:inputType="text"/>
+
+                <TextView
+                    android:id="@+id/text_name_explain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="영문 소문자 또는 한글 2자리 이상"
+                    android:textSize="12dp"
+                    android:textColor="@color/gray4"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:id="@+id/text_name_enable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사용 가능한 닉네임입니다."
+                    android:textSize="12dp"
+                    android:textColor="@color/sel_member_name"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_name_dup"
+                android:layout_width="70dp"
+                android:layout_height="48dp"
+                android:text="확인"
+                android:textSize="16dp"
+                android:textColor="@color/sel_member_btn"
+                android:background="@drawable/sel_member_btn"
+                android:layout_marginStart="8dp"
+                android:enabled="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="소개글"
+                android:textSize="13dp"
+                android:textColor="@color/gray5"/>
+
+            <EditText
+                android:id="@+id/edit_intro"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@drawable/border_round_gray3_14dp"
+                android:paddingVertical="15dp"
+                android:paddingHorizontal="16dp"
+                android:hint="나의 한 줄 소개글을 작성해주세요 :)"
+                android:textSize="15dp"
+                android:textColor="@color/gray6"
+                android:maxLength="100"
+                android:gravity="top"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="20dp"
+        android:text="변경하기"
+        android:fontFamily="@font/pretendard_extrabold"
+        android:textSize="16dp"
+        android:textColor="@color/sel_member_btn"
+        android:background="@drawable/sel_member_btn"/>
+
+
+</LinearLayout>

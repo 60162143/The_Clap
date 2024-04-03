@@ -35,52 +35,73 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/btn_back"/>
 
-        <ImageButton
-            android:id="@+id/btn_more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_more"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginVertical="6dp"
-            android:layout_marginEnd="8dp"
-            android:padding="8dp"
-            android:background="@color/transparent"/>
-
-        <ImageButton
-            android:id="@+id/btn_bookmark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sel_comp_bmk"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/btn_more"
-            android:layout_marginVertical="6dp"
-            android:padding="8dp"
-            android:background="@color/transparent"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_comment"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/rv_comp_comment"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"
-        android:layout_below="@id/title_constraint_layout"
-        android:layout_marginBottom="64dp"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="64dp"
+        android:layout_below="@id/title_constraint_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/rv_comp_comment"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:id="@+id/btn_cmt_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center_horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이전 댓글 더보기"
+                    android:textSize="12dp"
+                    android:textColor="@color/gray4"
+                    android:drawableEnd="@drawable/ic_plus_14dp"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="48dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray1"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="@drawable/round_top_gray1_24dp"
         android:paddingVertical="12dp"
         android:paddingHorizontal="16dp"
         android:gravity="center_vertical"
-        android:minHeight="64dp">
+        android:minHeight="64dp"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentBottom="true">
 
         <EditText
             android:id="@+id/edit_cmt"

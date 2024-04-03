@@ -9,18 +9,17 @@ import android.view.View
 import android.view.animation.AnticipateInterpolator
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.chingchan.theClap.databinding.ActiMainBinding
-import com.chingchan.theClap.globalFunction.GlobalFunction
-import com.chingchan.theClap.ui.login.LoginActivity
+import com.chingchan.theClap.globalFunction.LifeCycleChecker
+import com.chingchan.theClap.ui.login.activity.LoginActivity
 import com.chingchan.theClap.ui.login.data.LoginResult
-import com.chingchan.theClap.ui.login.data.MembershipUserData
 import com.chingchan.theClap.ui.login.data.UserData
 import com.chingchan.theClap.ui.toast.customToast
 
@@ -29,15 +28,20 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActiMainBinding
     private var backPressedTime: Long = 0
     private lateinit var splashScreen: SplashScreen
+    private lateinit var liftCycleChecker: LifeCycleChecker
+
+    private val navController by lazy {
+        Navigation.findNavController(this, R.id.nav_host_fragment_activity_main)
+    }
 
     // 회원가입 Intent registerForActivityResult
-    private val startForResult = registerForActivityResult(
+    val startForResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == LoginResult.SUCCESS.code) {
-
-        }else if (result.resultCode == LoginResult.CANCEL.code) {   // '우선 둘러볼께요' 버튼 클릭시
-
+            navController.navigate(R.id.navigation_home)    // 홈 화면으로 이동
+        }else if (result.resultCode == LoginResult.CANCEL.code) {
+            navController.navigate(R.id.navigation_home)    // 홈 화면으로 이동
         } else if (result.resultCode == LoginResult.BACK.code) {
             finish()    // 앱 종료
         }
@@ -52,7 +56,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActiMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        NavigationUI.setupWithNavController(binding.navView, findNavController(R.id.nav_host_fragment_activity_main))
+        // 비밀번호 화면을 위한 LifeCycleChecker
+//        liftCycleChecker = LifeCycleChecker(applicationContext)
+//        liftCycleChecker.onCreate()
+
+        NavigationUI.setupWithNavController(binding.navView, navController)
 
         // 뒤로 가기 버튼 클릭시 콜백 호출
         this.onBackPressedDispatcher.addCallback(this, backPressCallback)
@@ -83,7 +91,8 @@ class MainActivity : AppCompatActivity() {
                 interpolator = AnticipateInterpolator()
                 duration = 3000L    // 3초 진행
 
-                if(UserData.getLoginType(applicationContext).isEmpty() and (UserData.getUserId(applicationContext) == 0)){
+                // 로그인 유저 아이디 있는지 확인
+                if(UserData.getUserId(applicationContext) == 0){
                     val intent = Intent(this@MainActivity, LoginActivity::class.java)
                     startForResult.launch(intent)
                 }
@@ -97,5 +106,9 @@ class MainActivity : AppCompatActivity() {
                 start()
             }
         }
+    }
+
+    fun moveToHome(){
+        navController.navigate(R.id.navigation_home)
     }
 }

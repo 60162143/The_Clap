@@ -5,6 +5,9 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
@@ -21,12 +24,13 @@ object customToast {
         val toast = Toast(context).apply {
             view = toastView
             setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL, 0, 48)
+
         }.apply { show() }
 
         Timer().schedule(object : TimerTask() {
             override fun run() {
                 toast.cancel()
             }
-        }, 2000) // 1초 뒤 토스트 종료
+        }, 2000) // 2초 뒤 토스트 종료
     }
 }

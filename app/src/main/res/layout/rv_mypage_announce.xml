@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="14dp"
+        android:paddingHorizontal="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_write_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="21.06.20"
+                android:textSize="13dp"
+                android:textColor="@color/gray4"/>
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="공지사항 타이틀이 들어가는 자리입니다"
+                android:textSize="15dp"
+                android:textColor="@color/gray6"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_more"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_arrow_down"
+            android:background="@color/transparent"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray1"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="40dp"
+        android:text="공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다. 공지사항의 내용이 들어가는 자리입니다.  "
+        android:textSize="15dp"
+        android:textColor="@color/gray6"
+        android:visibility="gone"/>
+
+
+
+</LinearLayout>

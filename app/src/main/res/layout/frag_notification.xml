@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.notification.fragment.NotificationFragment"
+    android:orientation="vertical"
+    android:layout_marginBottom="56dp">
+
+    <!--    상단 타이틀    -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_constraint_layout">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_main_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:contentDescription="@string/frag_home_01"
+            android:layout_marginVertical="12dp"
+            android:layout_marginStart="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    /상단 타이틀    -->
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_constraint_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/frag_noti_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="내소식"
+                        android:fontFamily="@font/pretendard_extrabold"
+                        android:textSize="24dp"
+                        android:textColor="@color/gray6"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="서로 팔로잉한 친구"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"
+                        android:layout_gravity="center_vertical"/>
+
+                    <TextView
+                        android:id="@+id/follow_match_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0명"
+                        android:fontFamily="@font/pretendard_extrabold"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="4dp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_symbol_circle"
+                        android:layout_gravity="center_vertical"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/round_gray1_16dp"
+                        android:padding="2dp"
+                        android:layout_gravity="center_vertical">
+
+                        <Button
+                            android:id="@+id/btn_noti"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="알림"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/pretendard_extrabold"
+                            android:background="@drawable/sel_noti_toggle_14dp"
+                            android:textColor="@color/sel_noti_toggle"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:paddingVertical="9dp"
+                            android:paddingHorizontal="16dp"/>
+
+                        <Button
+                            android:id="@+id/btn_act"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="활동"
+                            android:textSize="15dp"
+                            android:textColor="@color/sel_noti_toggle"
+                            android:background="@drawable/sel_noti_toggle_14dp"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:paddingVertical="9dp"
+                            android:paddingHorizontal="16dp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/text_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="안읽음"
+                        android:textSize="14dp"
+                        android:textColor="@color/gray4"
+                        android:layout_marginEnd="10dp"
+                        android:layout_gravity="center_vertical"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        app:track="@drawable/sel_switch"
+                        android:thumb="@drawable/switch_thumb"
+                        app:thumbTextPadding="24dp"
+                        app:switchMinWidth="60dp"
+                        app:switchPadding="5dp"
+                        android:layout_gravity="center_vertical"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/notification_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:fontFamily="@font/pretendard_extrabold"
+                            android:textSize="14dp"
+                            android:textColor="@color/gray6"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="개의 알림이 있습니다."
+                            android:textSize="14dp"
+                            android:textColor="@color/gray5"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <Button
+                            android:id="@+id/btn_all_delete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:text="전체 삭제"
+                            android:textSize="14dp"
+                            android:textColor="@color/gray6"
+                            android:minHeight="0dp"
+                            android:minWidth="0dp"
+                            android:background="@color/transparent"/>
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_notification"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:listitem="@layout/rv_notification"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="vertical"
+                        android:layout_marginTop="4dp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/text_empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="알림이 없어요"
+                    android:gravity="center"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!-- 스켈레톤 UI로 표시될 뷰들을 추가합니다 -->
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/frag_noti_shimmer_layout"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/frag_notification_shim" />
+
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

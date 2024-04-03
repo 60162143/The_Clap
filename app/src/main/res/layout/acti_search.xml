@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_constraint_layout">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginVertical="6dp"
+            android:layout_marginStart="8dp"
+            android:padding="8dp"
+            android:background="@color/transparent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="검색"
+            android:textColor="@color/gray6"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btn_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.466" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_constraint_layout"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/edit_sch"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/border_round_gray3_14dp"
+            android:drawableStart="@drawable/ic_search_gray_24dp"
+            android:drawablePadding="4dp"
+            android:paddingHorizontal="12dp"
+            android:hint="검색어를 입력하세요."
+            android:textSize="15dp"
+            android:textColor="@color/gray6"
+            android:maxLines="1"
+            android:inputType="text"
+            android:imeOptions="actionSearch"/>
+
+        <ImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete_18dp"
+            android:background="@color/transparent"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_sch_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="vertical"
+        android:layout_below="@id/layout_edit">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="최근 검색어"
+            android:textSize="13dp"
+            android:textColor="@color/gray6"
+            android:layout_marginTop="20dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/rv_search"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/text_empty"
+            android:layout_width="match_parent"
+            android:layout_height="188dp"
+            android:text="검색 내역이 없습니다."
+            android:fontFamily="@font/pretendard_medium"
+            android:textSize="13dp"
+            android:textColor="@color/gray4"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:id="@+id/layout_all_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_all_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전체 삭제"
+                    android:background="@color/transparent"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textSize="13dp"
+                    android:textColor="@color/gray4"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:padding="4dp"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray4"
+                    android:layout_margin="4dp"/>
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_auto_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자동 저장 끄기"
+                android:background="@color/transparent"
+                android:fontFamily="@font/pretendard_medium"
+                android:textSize="13dp"
+                android:textColor="@color/gray4"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="4dp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_sch_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_edit"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@color/gray1"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:tabIndicatorColor="@color/gray6"
+            app:tabIndicatorHeight="2dp"
+            app:tabTextAppearance="@style/myPageTabTextSize"
+            app:tabSelectedTextColor="@color/gray6">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="칭찬글" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사용자"/>
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -5,11 +5,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="8dp">
 
-    <ImageView
-        android:id="@+id/cat_image"
+    <FrameLayout
         android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:background="@drawable/round_category_test_circle"/>
+        android:layout_height="44dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="#E3EEFF"/>
+
+        <ImageView
+            android:id="@+id/cat_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_category_all"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btn_cat"
@@ -53,7 +67,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_category_dot"
                 android:gravity="center_vertical"
-                android:layout_marginStart="4dp"/>
+                android:layout_marginStart="4dp"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

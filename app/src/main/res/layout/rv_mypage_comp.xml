@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/round_white_16dp"
+    android:elevation="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="14dp"
+        android:gravity="center_vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardElevation="0dp"
+                app:cardCornerRadius="120dp"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/gray2"
+                android:layout_marginTop="4dp">
+
+                <ImageButton
+                    android:id="@+id/comp_user_image"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_user_blank"
+                    android:scaleType="centerCrop"
+                    android:padding="0dp"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardElevation="0dp"
+                app:cardCornerRadius="120dp"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/white"
+                android:layout_gravity="bottom|end">
+
+<!--                <ImageButton-->
+<!--                    android:id="@+id/user_badge_image"-->
+<!--                    android:layout_width="18dp"-->
+<!--                    android:layout_height="18dp"-->
+<!--                    android:src="@drawable/ic_badge_gold"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    android:padding="0dp"/>-->
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="4dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="홍길동"
+                    android:fontFamily="@font/pretendard_extrabold"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/user_write_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1시간 전"
+                android:textSize="12dp"
+                android:textColor="@color/gray4"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/cat_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="재능/능력"
+            android:textSize="13dp"
+            android:textColor="@color/gray6"
+            android:background="@drawable/round_gray1_13dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingVertical="4dp"
+            android:paddingHorizontal="8dp"
+            android:clickable="false"
+            android:focusable="false"/>
+
+        <ImageButton
+            android:id="@+id/btn_more"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:src="@drawable/ic_more"
+            android:background="@color/transparent"
+            android:layout_marginStart="8dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:src="@drawable/ic_delete"
+            android:background="@color/transparent"
+            android:layout_marginStart="8dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="14dp">
+
+        <TextView
+            android:id="@+id/comp_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="내 친구 OOO 는 정말 멋진 사람이에요. "
+            android:fontFamily="@font/pretendard_extrabold"
+            android:textSize="16dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/comp_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="착하기도 한데 친절하기도 한 것 같아.
+그런데 웃는 모습까지도 예쁘니 친구들 한테 인기가 많아서 너무 부러워...
+그런데 웃는 모습까지도 예쁘니 친구들 한테 인기가 많아서 너무 부러워...
+그런데 웃는 모습까지도 예쁘니 친구들 한테 인기가 많아서 너무 부러워...
+그런데 웃는 모습까지도 예쁘니 친구들 한테 인기가 많아서 너무 부러워...
+그런데 웃는 모습까지도 예쁘니 친구들 한테 인기가 많아서 너무 부러워..."
+            android:textSize="15dp"
+            android:textColor="@color/gray6"
+            android:layout_marginTop="8dp"
+            android:maxLines="2"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btn_comp_heart"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="22"
+                android:textSize="12dp"
+                android:textColor="@color/sel_comp_heart"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:background="@color/transparent"
+                android:drawableStart="@drawable/sel_comp_heart"
+                android:drawablePadding="2dp"/>
+
+            <Button
+                android:id="@+id/btn_comp_cmt"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="22"
+                android:textSize="12dp"
+                android:textColor="@color/gray3"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:background="@color/transparent"
+                android:drawableStart="@drawable/ic_comment_20dp"
+                android:drawablePadding="2dp"
+                android:layout_marginStart="16dp"
+                android:clickable="false"
+                android:focusable="false"/>
+
+            <Button
+                android:id="@+id/btn_comp_view"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="22"
+                android:textSize="12dp"
+                android:textColor="@color/gray3"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:background="@color/transparent"
+                android:drawableStart="@drawable/ic_eye_20dp"
+                android:drawablePadding="2dp"
+                android:layout_marginStart="16dp"
+                android:clickable="false"
+                android:focusable="false"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
