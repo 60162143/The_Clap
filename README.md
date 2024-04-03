@@ -266,7 +266,7 @@
       
     - **LifeCycle Library** : 액티비티나 프래그먼트의 현재 수명 주기 상태를 기반으로 동작을 자동으로 조절할 수 있는 구성요소를 빌드할 수 있는 클래스 및 인터페이스를 제공
       <details>
-      <summary>예시 접기/펼치기</summary>
+      <summary>적용 코드 접기/펼치기</summary>
       
       ```kotlin
           // LifeCycle Observe Library
@@ -326,7 +326,7 @@
       
     - **Splash Screen Library** :  기존에 별도로 만들어서 사용하던 Splash 화면이 아닌, API를 통해 앱을 실행했을 때 설정한 Splash 화면을 보여주게 된다.
       <details>
-      <summary>예시 접기/펼치기</summary>
+      <summary>적용 코드 접기/펼치기</summary>
       
       ```kotlin
           // splashScreen api Library
@@ -375,7 +375,7 @@
       
     - **Swiperefreshlayout Library** : Layout을 아래로 Swipe 하여 새로고침이 가능한 라이브러리
       <details>
-      <summary>예시 접기/펼치기</summary>
+      <summary>적용 코드 접기/펼치기</summary>
       
       ```kotlin
         // SwipeRefeshLayout Library
@@ -400,7 +400,7 @@
       
     - **Glide Library** : 이미지를 빠르고 효율적으로 불러올 수 있게 도와주는 라이브러리
       <details>
-      <summary>예시 접기/펼치기</summary>
+      <summary>적용 코드 접기/펼치기</summary>
       
       ```kotlin
           // Glide Library
@@ -417,320 +417,331 @@
       </div>
       </details>
       <br>
-      
-    - **Glide Library** : 이미지를 빠르고 효율적으로 불러올 수 있게 도와주는 라이브러리
+
+    - **Retrofit2 Library** : API 통신을 위해 구현된 OkHTTP의 HTTP 통신을 간편하게 만들어주는 라이브러리를 뜻함, Async Task가 없이 Background 쓰레드를 실행 -> CallBack을 통하여 Main Thread에서 UI를 업데이트, 동일 Squareup사의 OkHttp 라이브러리의 상위 구현체
       <details>
-      <summary>예시 접기/펼치기</summary>
+      <summary>적용 코드 접기/펼치기</summary>
+   
+      ```kotlin
+        object ApiObject {
+          private const val BASE_URL = BuildConfig.BASE_URL
+
+          // Interface를 사용할 인스턴스, baseUrl(URL) / Converter(변환기) 설정
+          val getRetrofit: Retrofit by lazy{
+              Retrofit.Builder()
+                  .baseUrl(BASE_URL)
+                  .addConverterFactory(GsonConverterFactory.create())
+                  .build()
+          }
+      
+          val getLoginService : LoginAPI by lazy { getRetrofit.create(LoginAPI::class.java) } // 로그인 관련 API
+          val getCompService : ComplimentAPI by lazy { getRetrofit.create(ComplimentAPI::class.java) }    // 게시글 관련 API
+          val getMyPageService : MyPageAPI by lazy { getRetrofit.create(MyPageAPI::class.java) }  // 마이페이지 관련 API
+          val getSearchService : SearchAPI by lazy { getRetrofit.create(SearchAPI::class.java) }  // 검색 관련 API
+          val getNotificationService : NotificationAPI by lazy { getRetrofit.create(NotificationAPI::class.java) }    // 내소식 관련 API
+      }
+      ```
+   
+      ```kotlin
+          interface LoginAPI {
+              // 로그인 확인
+              @POST("login/app")
+              fun getLoginCheck(
+                  @Body req : LoginUserReqData,
+              ): Call<LoginUserResData>
+          
+              // 회원가입
+              @POST("login/signup")
+              fun getSignUp(
+                  @Body req : MembershipUserData,
+              ): Call<LoginUserResData>
+          
+              // 게스트 회원가입
+              @POST("login/guestSignup")
+              fun getGuestLogin(
+              ): Call<GuestLoginUserResData>
+          }
+      ```
       
       ```kotlin
-        with(binding){
-                GlideApp
-                    .with(rvImage.context) // View, Fragment 혹은 Activity로부터 Context를 가져온다.
-                    .load(compImageData.uri)  // 이미지를 로드한다. 다양한 방법으로 이미지를 불러올 수 있다. (Bitmap, Drawable, String, Uri, File, ResourId(Int), ByteArray)
-                    .into(rvImage)  // 이미지를 보여줄 View를 지정한다.
-            }
-      ```
+        // Retrofit2 Library
+        implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+        implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
       
-      </div>
-      </details>
-    - **Styleable Toast Library** : 폰트, 배경색, 아이콘 등 토스트의 전반적인 디자인을 themes.xml에서 원하는 대로 지정해 줄 수 있는 라이브러리
-      <details>
-      <summary>예시 접기/펼치기</summary>
-      
-      ```java
-        // themes.xml
-        <style name="orangeToast">
-            <item name="stTextBold">텍스트 스타일 Bold 유무</item>
-            <item name="stTextColor">텍스트 색상</item>
-            <item name="stFont">폰트</item>
-            <item name="stTextSize">텍스트 사이즈</item>
-            <item name="stColorBackground">배경색</item>
-            <item name="stStrokeWidth">테두리 두께</item>
-            <item name="stStrokeColor">테두리 색상</item>
-            <item name="stIconStart">왼쪽에 나타날 아이콘</item>
-            <item name="stIconEnd">오른쪽에 나타날 아이콘</item>
-            <item name="stLength">지속 시간  LONG or SHORT</item>
-            <item name="stGravity">위치  top or center</item>
-            <item name="stRadius">가장자리 둥글게</item>
-        </style>
-      ```
-      
-      </div>
-      </details>
+        // 로그인 체크
+        // 로그인 확인 시 메인화면으로 이동
+        // 로그인 정보 없을 시 회원가입화면으로 이동
+        private fun loginCheck(userData: MembershipUserData) {
+            val apiObjectCall = ApiObject.getLoginService.getLoginCheck(LoginUserReqData(userData.socialId, userData.loginType))
+    
+            apiObjectCall.enqueue(object: Callback<LoginUserResData> {
+                override fun onResponse(call: Call<LoginUserResData>, response: Response<LoginUserResData>) {
+                    // 추후 성공 시 여기 코드로 리팩토링
+                    if(response.isSuccessful) {
+                        val loginUserData = response.body()?.data
 
-    - **Volley Library** : 네트워킹을 보다 쉽고 빠르게 만들어주는 HTTP 라이브러리
-      <details>
-      <summary>예시 접기/펼치기</summary>
-      
-      ```java
-        public void sendRequest(){
-          String url = "https://www.google.co.kr";
-  
-          //StringRequest를 만듬 (파라미터구분을 쉽게하기위해 엔터를 쳐서 구분하면 좋다)
-          //StringRequest는 요청객체중 하나이며 가장 많이 쓰인다고한다.
-          //요청객체는 다음고 같이 보내는방식(GET,POST), URL, 응답성공리스너, 응답실패리스너 이렇게 4개의 파라미터를 전달할 수 있다.(리퀘스트큐에 ㅇㅇ)
-          //화면에 결과를 표시할때 핸들러를 사용하지 않아도되는 장점이있다.
-          StringRequest request = new StringRequest(
-                  Request.Method.GET,
-                  url,
-                  new Response.Listener<String>() {  //응답을 문자열로 받아서 여기다 넣어달란말임(응답을 성공적으로 받았을 떄 이메소드가 자동으로 호출됨
-                      @Override
-                      public void onResponse(String response) {
-                          println("응답 => " + response);
-                      }
-                  },
-                  new Response.ErrorListener(){ //에러발생시 호출될 리스너 객체
-                      @Override
-                      public void onErrorResponse(VolleyError error) {
-                          println("에러 => "+ error.getMessage());
-                      }
-                  }
-          ){
-              //만약 POST 방식에서 전달할 요청 파라미터가 있다면 getParams 메소드에서 반환하는 HashMap 객체에 넣어줍니다.
-              //이렇게 만든 요청 객체는 요청 큐에 넣어주는 것만 해주면 됩니다.
-              //POST방식으로 안할거면 없어도 되는거같다.
-              @Override
-              protected Map<String, String> getParams() throws AuthFailureError {
-                  Map<String, String> params = new HashMap<String, String>();
-                  return params;
-              }
-          };
-  
-          //아래 add코드처럼 넣어줄때 Volley라고하는게 내부에서 캐싱을 해준다, 즉, 한번 보내고 받은 응답결과가 있으면
-          //그 다음에 보냈을 떄 이전 게 있으면 그냥 이전거를 보여줄수도  있다.
-          //따라서 이렇게 하지말고 매번 받은 결과를 그대로 보여주기 위해 다음과같이 setShouldCache를 false로한다.
-          //결과적으로 이전 결과가 있어도 새로 요청한 응답을 보여줌
-          request.setShouldCache(false);
-          AppHelper.requestQueue.add(request);
-          println("요청 보냄!!");
+                        // 데이터 저장장
+                        UserData.setUserId(applicationContext, loginUserData?.userId!!)
+                        UserData.setAccessToken(applicationContext, loginUserData.accessToken)
+                        UserData.setRefreshToken(applicationContext, loginUserData.refreshToken)
+                        UserData.setUserName(applicationContext, loginUserData.name)
+                        UserData.setNickName(applicationContext, loginUserData.nickname)
+                        UserData.setLoginType(applicationContext, userData.loginType)
+    
+                        if(userData.loginType != "GUEST"){
+                            customToast.showCustomToast("로그인에 성공했습니다.", this@LoginActivity)
+                        }else{
+                            customToast.showCustomToast("게스트 로그인에 성공했습니다.", this@LoginActivity)
+                        }
+    
+                        moveToMainActivity(LoginResult.SUCCESS.code)
+                    }else{
+                        val errorData = ApiObject.getRetrofit.responseBodyConverter<LoginUserResData>(
+                            LoginUserResData::class.java,
+                            LoginUserResData::class.java.annotations
+                        ).convert(response.errorBody()!!)
+    
+                        errorData?.code.let{
+                            if(it == ErrorCode.S00002.name){
+                                // 회원가입 하기
+                                val intent = Intent(this@LoginActivity, LoginMembershipAgreementActivity::class.java).apply {
+                                    putExtra("membershipUserData", membershipUserData);
+                                }
+                                startForResult.launch(intent)
+    
+    
+                            }else{
+                                customToast.showCustomToast("로그인에 실패했습니다.", this@LoginActivity)
+                            }
+                        }
+                    }
+                }
+    
+                override fun onFailure(call: Call<LoginUserResData>, t: Throwable) {
+                    customToast.showCustomToast("Call Failed", this@LoginActivity)
+                }
+            })
         }
       ```
       
       </div>
       </details>
+      <br />
       
-    - **TedPermission Library** : 안드로이드에서 퍼미션 권한 관리에 도움을 주는 라이브러리
-      <details>
-      <summary>예시 접기/펼치기</summary>
-      
-      ```java
-        PermissionListener permissionlistener = new PermissionListener() {
-              @Override
-              public void onPermissionGranted() {
-                  Toast.makeText(MainActivity.this, "권한 허가", Toast.LENGTH_SHORT).show();
-              }
-  
-              @Override
-              public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-                  Toast.makeText(MainActivity.this, "권한 거부\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-              }
-  
-          };
-  
-          TedPermission.with(this)
-                  .setPermissionListener(permissionlistener)
-                  .setRationaleMessage("구글 로그인을 하기 위해서는 주소록 접근 권한이 필요해요")
-                  .setDeniedMessage("왜 거부하셨어요...\n하지만 [설정] > [권한] 에서 권한을 허용할 수 있어요.")
-                  .setPermissions(Manifest.permission.READ_CONTACTS)
-                  .check();
-      ```
-      
-      </div>
-      </details>
-      
-    - **SMTP Mail Library** : Javax의 기본 Mail 라이브러리
-      <details>
-      <summary>예시 접기/펼치기</summary>
-      
-      ```java
-        public GMailSender(String user, String password) {
-          this.user = user;
-          this.password = password;
-          emailCode = createEmailCode();
-          Properties props = new Properties();
-          props.setProperty("mail.transport.protocol", "smtp");
-          props.setProperty("mail.host", mailhost);
-          props.put("mail.smtp.auth", "true");
-          props.put("mail.smtp.port", "465");
-          props.put("mail.smtp.socketFactory.port", "465");
-          props.put("mail.smtp.socketFactory.class",
-                  "javax.net.ssl.SSLSocketFactory");
-          props.put("mail.smtp.socketFactory.fallback", "false");
-          props.setProperty("mail.smtp.quitwait", "false");
-  
-          //구글에서 지원하는 smtp 정보를 받아와 MimeMessage 객체에 전달해준다.
-          session = Session.getDefaultInstance(props, this);
-      }
-      ```
-      
-      </div>
-      </details>
-
-    - **ftp4j-1.6 Library** : Ftp 파일 전송 라이브러리
-      <details>
-      <summary>예시 접기/펼치기</summary>
-      
-      ```java
-        public void uploadFile(File fileName){
- 
-          FTPClient client = new FTPClient();
-   
-          try {
-              client.connect(FTP_HOST,21);//ftp 서버와 연결, 호스트와 포트를 기입
-              client.login(FTP_USER, FTP_PASS);//로그인을 위해 아이디와 패스워드 기입
-              client.setType(FTPClient.TYPE_BINARY);//2진으로 변경
-              client.changeDirectory("uploadtest/");//서버에서 넣고 싶은 파일 경로를 기입
-   
-              client.upload(fileName, new MyTransferListener());//업로드 시작
-   
-              handler.post(new Runnable() {
-                  @Override
-                  public void run() {
-                      Toast.makeText(getApplicationContext(),"성공",Toast.LENGTH_SHORT).show();
-                  }
-              });
-   
-          } catch (Exception e) {
-   
-              handler.post(new Runnable() {
-                  @Override
-                  public void run() {
-                      Toast.makeText(getApplicationContext(),"실패",Toast.LENGTH_SHORT).show();
-                  }
-              });
-   
-              e.printStackTrace();
-              try {
-                  client.disconnect(true);
-              } catch (Exception e2) {
-                  e2.printStackTrace();
-              }
-          }
-      }
-      ```
-      
-      </div>
-      </details>
-
-<br />
-      
-  - #### **2. 사용 api**
+  - #### **2. 소셜 로그인 api**
 
     - **Kakao Login API** : 카카오에서 제공하는 카카오 로그인 API
       <details>
       <summary>예시 접기/펼치기</summary>
       
-      ```java
-        // 카카오톡이 설치되어 있는지 확인하는 메서드 , 카카오에서 제공함. 콜백 객체를 이용합.
-        Function2<OAuthToken,Throwable,Unit> callback =new Function2<OAuthToken, Throwable, Unit>() {
-            @Override
-            // 콜백 메서드 ,
-            public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
-                Log.e(TAG,"CallBack Method");
-                //oAuthToken != null 이라면 로그인 성공
-                if(oAuthToken!=null){
-                    // 토큰이 전달된다면 로그인이 성공한 것이고 토큰이 전달되지 않으면 로그인 실패한다.
-                    updateKakaoLoginUi();
+      ```kotlin
+        // Kakao Login api
+        implementation "com.kakao.sdk:v2-user:2.10.0"
 
-                }else {
-                    //로그인 실패
-                    Log.e(TAG, "invoke: login fail" );
+        // 카카오 SDK 초기화
+        KakaoSdk.init(applicationContext, BuildConfig.KAKAO_LOGIN_API_KEY)
+
+        // 카카오 로그인 동작
+                val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
+                    if (error != null) {
+                        when {
+                            error.toString() == AuthErrorCause.AccessDenied.toString() -> {
+                                customToast.showCustomToast("접근이 거부 됨(동의 취소)", this@LoginActivity)
+                            }
+                            error.toString() == AuthErrorCause.InvalidClient.toString() -> {
+                                customToast.showCustomToast("유효하지 않은 앱", this@LoginActivity)
+                            }
+                            error.toString() == AuthErrorCause.InvalidGrant.toString() -> {
+                                customToast.showCustomToast("인증 수단이 유효하지 않아 인증할 수 없는 상태", this@LoginActivity)
+                            }
+                            error.toString() == AuthErrorCause.InvalidRequest.toString() -> {
+                                customToast.showCustomToast("요청 파라미터 오류", this@LoginActivity)
+                            }
+                            error.toString() == AuthErrorCause.InvalidScope.toString() -> {
+                                customToast.showCustomToast("유효하지 않은 scope ID", this@LoginActivity)
+                            }
+                            error.toString() == AuthErrorCause.Misconfigured.toString() -> {
+                                customToast.showCustomToast("설정이 올바르지 않음(android key hash)", this@LoginActivity)
+                            }
+                            error.toString() == AuthErrorCause.ServerError.toString() -> {
+                                customToast.showCustomToast("서버 내부 에러", this@LoginActivity)
+                            }
+                            error.toString() == AuthErrorCause.Unauthorized.toString() -> {
+                                customToast.showCustomToast("앱이 요청 권한이 없음", this@LoginActivity)
+                            }
+                            else -> { // Unknown
+                                customToast.showCustomToast("관리자에게 문의해주세요.", this@LoginActivity)
+                            }
+                        }
+                    }
+                    else if (token != null) {
+                        UserApiClient.instance.me { user, error ->
+
+                            // 회원 가입 정보
+                            membershipUserData = MembershipUserData(
+                                email = user?.kakaoAccount?.email ?: "",
+                                phone = "",
+                                name = user?.kakaoAccount?.profile?.nickname ?: "",
+                                nickname = "",
+                                profile_image = user?.kakaoAccount?.profile?.profileImageUrl ?: "",
+                                introduction = "",
+                                loginType = LoginType.KAKAO.name,
+                                userType = "",
+                                socialId = user?.id?.toString() ?: ""
+                            )
+
+                            loginCheck(membershipUserData)  // 로그인 체크
+                        }
+                    }
                 }
 
-                return null;
+                // 로그인 진행
+                if(UserApiClient.instance.isKakaoTalkLoginAvailable(this@LoginActivity)){
+                    UserApiClient.instance.loginWithKakaoTalk(this@LoginActivity, callback = callback)
+                }else{
+                    UserApiClient.instance.loginWithKakaoAccount(this@LoginActivity, callback = callback)
+                }
+      ```
+      
+      </div>
+      </details>
+      <br>
+      
+    - **Naver Login API** : 네이버에서 제공하는 카카오 로그인 API
+      <details>
+      <summary>예시 접기/펼치기</summary>
+      
+      ```kotlin
+        // Naver Login api
+        implementation 'com.navercorp.nid:oauth:5.3.0'
+
+        // 네이버 SDK 초기화
+        NaverIdLoginSDK.initialize(applicationContext, BuildConfig.NAVER_LOGIN_CLIENT_ID, BuildConfig.NAVER_LOGIN_CLIENT_SECRET, BuildConfig.NAVER_LOGIN_CLIENT_NAME)
+
+        // 네이버 로그인 동작
+                var naverToken :String? = ""
+
+                val profileCallback = object : NidProfileCallback<NidProfileResponse> {
+                    override fun onSuccess(response: NidProfileResponse) {
+                        // 회원 가입 정보
+                        membershipUserData = MembershipUserData(
+                            email = response.profile?.email ?: "",
+                            phone = "",
+                            name = response.profile?.name ?: "",
+                            nickname = "",
+                            profile_image = response.profile?.profileImage ?: "",
+                            introduction = "",
+                            loginType = LoginType.NAVER.name,
+                            userType = "",
+                            socialId = response.profile?.id ?: ""
+                        )
+
+                        loginCheck(membershipUserData)  // 로그인 체크
+                    }
+                    override fun onFailure(httpStatus: Int, message: String) {
+                        val errorCode = NaverIdLoginSDK.getLastErrorCode().code
+                        val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
+                        customToast.showCustomToast("로그인에 실패했습니다.", this@LoginActivity)
+                    }
+                    override fun onError(errorCode: Int, message: String) {
+                        onFailure(errorCode, message)
+                    }
+                }
+
+                /** OAuthLoginCallback을 authenticate() 메서드 호출 시 파라미터로 전달하거나 NidOAuthLoginButton 객체에 등록하면 인증이 종료되는 것을 확인할 수 있습니다. */
+                val oauthLoginCallback = object : OAuthLoginCallback {
+                    override fun onSuccess() {
+                        // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
+                        naverToken = NaverIdLoginSDK.getAccessToken()
+                        var naverRefreshToken = NaverIdLoginSDK.getRefreshToken()
+                        var naverExpiresAt = NaverIdLoginSDK.getExpiresAt().toString()
+                        var naverTokenType = NaverIdLoginSDK.getTokenType()
+                        var naverState = NaverIdLoginSDK.getState().toString()
+
+                        //로그인 유저 정보 가져오기
+                        NidOAuthLogin().callProfileApi(profileCallback)
+                    }
+                    override fun onFailure(httpStatus: Int, message: String) {
+                        val errorCode = NaverIdLoginSDK.getLastErrorCode().code
+                        val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
+                        customToast.showCustomToast("로그인에 실패했습니다.", this@LoginActivity)
+                    }
+                    override fun onError(errorCode: Int, message: String) {
+                        onFailure(errorCode, message)
+                    }
+                }
+
+                NaverIdLoginSDK.authenticate(this@LoginActivity, oauthLoginCallback)
+      ```
+      
+      </div>
+      </details>
+      <br>
+      
+    - **Google Login API** : 구글에서 제공하는 카카오 로그인 API
+      <details>
+      <summary>예시 접기/펼치기</summary>
+      
+      ```kotlin
+        implementation 'com.google.gms:google-services:4.4.0'
+        implementation 'com.google.firebase:firebase-auth:22.3.1'
+
+        // 구글 SDK 초기화
+        companion object {
+    
+            private val instance = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(BuildConfig.GOOGLE_LOGIN_CLIENT_ID)
+                .requestServerAuthCode(BuildConfig.GOOGLE_LOGIN_CLIENT_ID) // client id 를 이용해 server authcode를 요청한다.
+                .requestEmail() // 이메일도 요청할 수 있다.
+                .build()
+    
+            fun getInstance(): GoogleSignInOptions {
+                return instance
             }
-        };
+        }
+
+      //  구글 로그인 동작
+            val account = GoogleSignIn.getLastSignedInAccount(this@LoginActivity)
+
+            val signInIntent = GoogleSignIn.getClient(applicationContext, InitApplication.getInstance()).signInIntent
+            
+            googleAuthLauncher.launch(signInIntent)
+
+            // 구글 로그인 진행 후 결과 값 받아오기
+            private val googleAuthLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == RESULT_OK) {
+                    val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+        
+                    try {
+                        // 이름, 이메일 등이 필요하다면 아래와 같이 account를 통해 각 메소드를 불러올 수 있다.
+                        val account = task.getResult(ApiException::class.java)
+        
+                        // 회원 가입 정보
+                        membershipUserData =  MembershipUserData(
+                            email = account?.email ?: "",
+                            phone = "",
+                            name = account?.displayName ?: "",
+                            nickname = "",
+                            profile_image = account?.photoUrl?.toString() ?: "",
+                            introduction = "",
+                            loginType = LoginType.GOOGLE.name,
+                            userType = "",
+                            socialId = account?.id ?: ""
+                        )
+        
+                        loginCheck(membershipUserData)  // 로그인 체크
+        
+                    } catch (e: ApiException) {
+                        customToast.showCustomToast("로그인에 실패했습니다.", this@LoginActivity)
+                    }
+                }else{
+                    customToast.showCustomToast("로그인에 실패했습니다.", this@LoginActivity)
+                }
+            }
       ```
       
       </div>
       </details>
-
-    - **Kakao Map API** : 카카오에서 제공하는 카카오 지도 API
-      <details>
-      <summary>예시 접기/펼치기</summary>
-      
-      ```java
-        // 지도 띄우기
-        mapView = new MapView(this);
-        mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
-        mapViewContainer.addView(mapView);
-        mapView.setMapViewEventListener(this);
-        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
-      ```
-      
-      </div>
-      </details>
-
-    - **BootPay Payment API** : 부트페이에서 제공하는 PG 결제 연동 API
-      <details>
-      <summary>예시 접기/펼치기</summary>
-      
-      ```java
-        // 결제호출
-        BootUser bootUser = new BootUser().setPhone("010-1234-5678");
-        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
-
-        Bootpay.init(getFragmentManager())
-                .setApplicationId([ Android SDK용 Application ID ]) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.) // 결제할 PG 사
-                .setMethod(Method.) // 결제수단
-                .setContext(this)
-                .setBootUser(bootUser)
-                .setBootExtra(bootExtra)
-                .setUX(UX.PG_DIALOG)
-                .setUserPhone("010-1234-5678") // 구매자 전화번호
-                .setName("맥북프로's 임다") // 결제할 상품명
-                .setOrderId("1234") // 결제 고유번호expire_month
-                .setPrice(10000) // 결제할 금액
-                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
-                    @Override
-                    public void onConfirm(@Nullable String message) {
-
-                        if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
-                        else Bootpay.removePaymentWindow(); // 재고가 없어 중간에 결제창을 닫고 싶을 경우
-                        Log.d("confirm", message);
-                    }
-                })
-                .onDone(new DoneListener() { // 결제완료시 호출, 아이템 지급 등 데이터 동기화 로직을 수행합니다
-                    @Override
-                    public void onDone(@Nullable String message) {
-                        Log.d("done", message);
-                    }
-                })
-                .onReady(new ReadyListener() { // 가상계좌 입금 계좌번호가 발급되면 호출되는 함수입니다.
-                    @Override
-                    public void onReady(@Nullable String message) {
-                        Log.d("ready", message);
-                    }
-                })
-                .onCancel(new CancelListener() { // 결제 취소시 호출
-                    @Override
-                    public void onCancel(@Nullable String message) {
-
-                        Log.d("cancel", message);
-                    }
-                })
-                .onError(new ErrorListener() { // 에러가 났을때 호출되는 부분
-                    @Override
-                    public void onError(@Nullable String message) {
-                        Log.d("error", message);
-                    }
-                })
-                .onClose(
-                        new CloseListener() { //결제창이 닫힐때 실행되는 부분
-                    @Override
-                    public void onClose(String message) {
-                        Log.d("close", "close");
-                    }
-                })
-                .request();
-      ```
-      
-      </div>
-      </details>
-
 <br />
 
 ## **📓 데이터베이스**
