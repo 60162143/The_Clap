@@ -59,8 +59,8 @@
 
 ### **1. 로그인 및 회원가입 화면**
 ***
-  <details>
-  <summary>View 접기/펼치기</summary>
+  <details open>
+  <summary><b>View 접기/펼치기</b></summary>
   
   <img width="300" height="600" alt="어플 실행 화면" src="https://github.com/60162143/The_Clap/assets/33407087/ec102037-ebda-4d6b-8d51-7b4fe6cb3dd3" /> &nbsp;&nbsp;&nbsp;&nbsp; <img width="300" height="600" alt="회원가입 화면" src="https://github.com/60162143/The_Clap/assets/33407087/ef497485-3d7a-44d6-9cac-38198a3976c8" />
   
@@ -78,8 +78,8 @@
 
 ### **2. 메인 화면**
 ***
-  <details>
-  <summary>View 접기/펼치기</summary>
+  <details open>
+  <summary><b>View 접기/펼치기</b></summary>
   
   <img width="300" height="600" alt="메인 화면" src="https://github.com/60162143/The_Clap/assets/33407087/ce4b0efe-5846-4866-8671-d56533ca6840" /> &nbsp;&nbsp;&nbsp;&nbsp; <img width="300" height="600" alt="검색 화면" src="https://github.com/60162143/The_Clap/assets/33407087/dd83b2b2-5142-405d-aede-e11f32aa2a79" />  &nbsp;&nbsp;&nbsp;&nbsp; <img width="300" height="600" alt="게시글 작성 화면" src="https://github.com/60162143/The_Clap/assets/33407087/2b1c4ed0-822e-4ba8-ba46-b37bb4a8bcd6" />
   
@@ -96,8 +96,8 @@
 
 ### **3. 게시글 조회 화면**
 ***
-  <details>
-  <summary>View 접기/펼치기</summary>
+  <details open>
+  <summary><b>View 접기/펼치기</b></summary>
   
   <img width="300" height="600" alt="게시글 조회 화면" src="https://github.com/60162143/The_Clap/assets/33407087/a5efc057-75df-4f1f-b416-4d815238d9d6" /> &nbsp;&nbsp;&nbsp;&nbsp; <img width="300" height="600" alt="타유저 프로필 검색 화면" src="https://github.com/60162143/The_Clap/assets/33407087/5180f196-231d-4a2b-ac32-506a793ace46" />
   
@@ -114,8 +114,8 @@
 
 ### **4. 내소식 화면**
 ***
-  <details>
-  <summary>View 접기/펼치기</summary>
+  <details open>
+  <summary><b>View 접기/펼치기</b></summary>
   
   <img width="300" height="600" alt="내소식 화면" src="https://github.com/60162143/The_Clap/assets/33407087/36cc65fe-4b41-45be-aa27-3a131eefba6c" />
   
@@ -131,8 +131,8 @@
 
 ### **5. 마이페이지 화면**
 ***
-  <details>
-  <summary>View 접기/펼치기</summary>
+  <details open>
+  <summary><b>View 접기/펼치기</b></summary>
   
   <img width="300" height="600" alt="지도 화면" src="https://github.com/60162143/The_Clap/assets/33407087/9bbc9712-ccca-4395-8cfe-022764be4697" />  &nbsp;&nbsp;&nbsp;&nbsp; <img width="300" height="600" alt="프로필 수정" src="https://github.com/60162143/The_Clap/assets/33407087/4e5c73f9-8863-4b80-bf60-e7ba6ece6987" />
   
@@ -152,8 +152,8 @@
 
   - #### **1. 사용 라이브러리**
     - **Coroutine Library** : 가벼운 스레드(Light-weight thread)로 동시성(Concurrency) 작업을 간편하게 처리할 수 있게 해주는 역할, 코루틴을 통해 UI 스레드가 중단되는 문제를 효율적으로 처리할 수 있음
-      <details>
-      <summary>적용 코드 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 코드 접기/펼치기</b></summary>
       
       ```kotlin
         // Coroutines
@@ -179,8 +179,8 @@
       <br>
       
     - **Shimmer Library** : 표시될 정보의 대략적인 형태를 미리 보여줘서 다음 화면까지 부드럽게 연결해주는 역할
-      <details>
-      <summary>적용 코드 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 코드 접기/펼치기</b></summary>
         
       ```kotlin
         // Shimmer
@@ -253,15 +253,15 @@
       
       </div>
       </details>
-      <details>
-      <summary>적용 화면 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 화면 접기/펼치기</b></summary>
         <img width="300" height="600" alt="Shimmer 화면" src="https://github.com/60162143/The_Clap/assets/33407087/bb3e8201-65ec-473e-ae51-b0e0050a160d" />
       </details>
       <br>
       
     - **LifeCycle Library** : 액티비티나 프래그먼트의 현재 수명 주기 상태를 기반으로 동작을 자동으로 조절할 수 있는 구성요소를 빌드할 수 있는 클래스 및 인터페이스를 제공
-      <details>
-      <summary>적용 코드 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 코드 접기/펼치기</b></summary>
       
       ```kotlin
           // LifeCycle Observe Library
@@ -317,15 +317,15 @@
       
       </div>
       </details>
-      <details>
-      <summary>적용 화면 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 화면 접기/펼치기</b></summary>
         <img width="300" height="600" alt="비밀번호 화면" src="https://github.com/60162143/The_Clap/assets/33407087/34e61d94-46bf-4774-9d8c-19bc85dfa724" />
       </details>
       <br>
       
     - **Splash Screen Library** :  기존에 별도로 만들어서 사용하던 Splash 화면이 아닌, API를 통해 앱을 실행했을 때 설정한 Splash 화면을 보여주게 된다.
-      <details>
-      <summary>적용 코드 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 코드 접기/펼치기</b></summary>
       
       ```kotlin
           // splashScreen api Library
@@ -373,8 +373,8 @@
       <br>
       
     - **Swiperefreshlayout Library** : Layout을 아래로 Swipe 하여 새로고침이 가능한 라이브러리
-      <details>
-      <summary>적용 코드 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 코드 접기/펼치기</b></summary>
       
       ```kotlin
         // SwipeRefeshLayout Library
@@ -395,15 +395,15 @@
       
       </div>
       </details>
-      <details>
-      <summary>적용 화면 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 화면 접기/펼치기</b></summary>
         <img width="300" height="600" alt="SwipeRefreshLayout 화면" src="https://github.com/60162143/The_Clap/assets/33407087/f7482c90-a1e2-4c1d-99a1-2d9d20c8816b" />
       </details>
       <br>
       
     - **Glide Library** : 이미지를 빠르고 효율적으로 불러올 수 있게 도와주는 라이브러리
-      <details>
-      <summary>적용 코드 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 코드 접기/펼치기</b></summary>
       
       ```kotlin
           // Glide Library
@@ -422,8 +422,8 @@
       <br>
 
     - **Retrofit2 Library** : API 통신을 위해 구현된 OkHTTP의 HTTP 통신을 간편하게 만들어주는 라이브러리를 뜻함, Async Task가 없이 Background 쓰레드를 실행 -> CallBack을 통하여 Main Thread에서 UI를 업데이트, 동일 Squareup사의 OkHttp 라이브러리의 상위 구현체
-      <details>
-      <summary>적용 코드 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 코드 접기/펼치기</b></summary>
    
       ```kotlin
         object ApiObject {
@@ -534,8 +534,8 @@
   - #### **2. 소셜 로그인 api**
 
     - **Kakao Login API** : 카카오에서 제공하는 카카오 로그인 API
-      <details>
-      <summary>적용 코드 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 코드 접기/펼치기</b></summary>
       
       ```kotlin
         // Kakao Login api
@@ -611,8 +611,8 @@
       <br>
       
     - **Naver Login API** : 네이버에서 제공하는 카카오 로그인 API
-      <details>
-      <summary>적용 코드 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 코드 접기/펼치기</b></summary>
       
       ```kotlin
         // Naver Login api
@@ -682,8 +682,8 @@
       <br>
       
     - **Google Login API** : 구글에서 제공하는 카카오 로그인 API
-      <details>
-      <summary>적용 코드 접기/펼치기</summary>
+      <details open>
+      <summary><b>적용 코드 접기/펼치기</b></summary>
       
       ```kotlin
         implementation 'com.google.gms:google-services:4.4.0'
